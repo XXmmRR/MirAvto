@@ -9,6 +9,10 @@ class HomePageView(TemplateView):
     template_name = 'HomePage.html'
 
 
+class DeliveryPageView(TemplateView):
+    template_name = 'deliveryPage.html'
+
+
 class PayPageView(TemplateView):
     template_name = 'PayPage.html'
 
