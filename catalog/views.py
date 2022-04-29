@@ -1,0 +1,9 @@
+from django.shortcuts import render
+from django.views.generic import TemplateView, ListView
+
+# Create your views here.
+
+
+class CatalogView(TemplateView):
+    template_name = 'Catalog.html'
+    
