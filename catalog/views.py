@@ -1,6 +1,6 @@
 from django.shortcuts import render
-from .models import PartList
-from django.views.generic import TemplateView, ListView
+from .models import PartList, Category
+from django.views.generic import DetailView, ListView
 
 # Create your views here.
 
@@ -10,4 +10,13 @@ class CatalogView(ListView):
     model = PartList
     context_object_name = 'parts'
 
-    
+
+# class CatalogDetailView(ListView):
+#      template_name = 'Catalog_item_page.html'
+#      model = Category
+#      context_object_name = 'categories'
+#
+
+def CatalogDetailView(request, slug):
+    categories = Category.objects.filter(part_list__list_slug=slug)
+    return render(request, 'Catalog_item_page.html', {'categories': categories} )

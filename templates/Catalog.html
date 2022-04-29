@@ -129,7 +129,7 @@
             <h2>Каталог автозапчастей</h2></div>
             <div class="three_block_grid_and_info grid_wrap">
           {% for part in parts %}
-          <a href="./Catalog_item_page.html">
+          <a href="{% url 'details' part.list_slug %}">
             <div class="grid_item">
               <img src="{{ part.image.url }}" alt="">
               <div class="bottom_info_block">
