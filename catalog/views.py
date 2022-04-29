@@ -9,6 +9,10 @@ class HomePageView(TemplateView):
     template_name = 'HomePage.html'
 
 
+class ContactPageView(TemplateView):
+    template_name = 'Contact.html'
+
+
 class CatalogView(ListView):
     template_name = 'Catalog.html'
     model = PartList
