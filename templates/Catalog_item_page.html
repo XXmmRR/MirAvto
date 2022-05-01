@@ -9,7 +9,7 @@
     <title>market</title>
 </head>
 <body>
-    <img src="./image/bg.jpg" alt="#" class="z_index_img" />
+    <img src="{% static 'image/bg.jpg' %}" alt="#" class="z_index_img" />
     <div class="search_block">
       <h2>Поиск по каталогу</h2>
       <input type="text">
@@ -151,7 +151,7 @@
                     
                     <img src="{{category.image.url}}" alt="#">
                     <div class="bottom_info_block">
-                        <p>{{category.category_name}}</p>
+                        <p>{{category.category_name}} {{category.get_slug}}</p>
                     </div>
                 </div>
                 </a>
