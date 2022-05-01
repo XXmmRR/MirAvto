@@ -48,5 +48,6 @@ class CatalogView(ListView):
 
 
 def CatalogDetailView(request, slug):
+    parts = PartList.objects.all()
     categories = Category.objects.filter(part_list__list_slug=slug)
-    return render(request, 'Catalog_item_page.html', {'categories': categories} )
+    return render(request, 'Catalog_item_page.html', {'categories': categories, 'parts': parts})
