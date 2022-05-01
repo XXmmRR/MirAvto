@@ -119,9 +119,28 @@
             <p>Скачать общий прайс</p>
             <p>(04 апреля 2022г)</p>
           </div>
+
+           <!-- Родитель боковых элементов -->
+          {% for part in parts %}
           <div class="div_for_aside_blocks">
-      
+            <div class="aside_info_blocks">
+              <a href="{% url 'details' part.list_slug %}" class="aa">
+                <img src="{{part.image.url}}" alt="">
+                <p class="p1p">{{part.list_name}}</p>
+                <div class="selector_menu">
+                  <p>Кузовные детали</p>
+                  <p>Рулевое управление</p>
+                  <p>Тормазная система</p>
+                  <p>Трансмиссия</p>
+                  <p>Электрооборудование</p>
+                  <p>устройства вспомогательные</p>
+                  <p>Двигатель</p>
+                </div>
+              </a>
+            </div>
           </div>
+          {% endfor %}
+
         </div>
         <div class="two_flex_block_in_container second_flex_block_in_container second_page_flex_block">
           
@@ -207,7 +226,5 @@
       </div>
       <div class="blur_bg"></div>
       <div class="blur_bg1"></div>
-    <script src="{% static 'js/index.js' %}"></script>
-    <script src="{% static 'js/catalog.js' %}"></script>
 </body>
 </html>

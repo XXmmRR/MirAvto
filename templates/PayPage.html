@@ -31,7 +31,7 @@
         </div>
         <div class="two_block_in_cont_nav second">
           <div class="two_block_log_and_reg log1">
-            <img src="{% static 'icon/3671785_key_icon.png' %} alt="" />
+            <img src="{% static 'icon/3671785_key_icon.png' %}" alt="" />
             <p>Вход</p>
           </div>
           <div class="two_block_log_and_reg">
@@ -121,39 +121,23 @@
             <p>(04 апреля 2022г)</p>
           </div>
           <div class="div_for_aside_blocks">
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
-           
+          {% for part in parts %}
+          <div class="aside_info_blocks">
+            <a href="{% url 'details' part.list_slug %}" class="aa">
+              <img src="{{part.image.url}}" alt="">
+              <p class="p1p">{{part.list_name}}</p>
+              <div class="selector_menu">
+                <p>Кузовные детали</p>
+                <p>Рулевое управление</p>
+                <p>Тормазная система</p>
+                <p>Трансмиссия</p>
+                <p>Электрооборудование</p>
+                <p>устройства вспомогательные</p>
+                <p>Двигатель</p>
+              </div>
+            </a>
+          </div>
+          {% endfor %}
           </div>
         </div>
         <div class="two_flex_block_in_container second_flex_block_in_container second_page_flex_block">

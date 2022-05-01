@@ -137,7 +137,31 @@
           <p>Скачать общий прайс</p>
           <p>(04 апреля 2022г)</p>
         </div>
-        <div class="div_for_aside_blocks"></div>
+
+
+         <!-- Родитель боковых элементов -->
+        <div class="div_for_aside_blocks">
+          {% for part in parts %}
+          <div class="aside_info_blocks">
+            <a href="{% url 'details' part.list_slug %}" class="aa">
+              <img src="{{part.image.url}}" alt="">
+              <p class="p1p">{{part.list_name}}</p>
+              <div class="selector_menu">
+                <p>Кузовные детали</p>
+                <p>Рулевое управление</p>
+                <p>Тормазная система</p>
+                <p>Трансмиссия</p>
+                <p>Электрооборудование</p>
+                <p>устройства вспомогательные</p>
+                <p>Двигатель</p>
+              </div>
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+
+
+        
       </div>
       <div class="two_flex_block_in_container second_flex_block_in_container">
         <div class="container_for_carousel">
@@ -180,16 +204,13 @@
           </div>
         </div>
         <div class="eight_block_from_main">
-          <h2>Магазин запчастей "Автоопт"</h2>
+          <h2>Магазин запчастей "Мир Авто"</h2>
           <p>
-            Интернет-магазин автозапчастей предлагает вашему вниманию широкий
-            спектр запасных частей для отечественных и импортных автомобилей
-            различных марок.
+            Интернет-магазин автозапчастей предлагает вашему вниманию широкий спектр запасных частей для  различных марок .
           </p>
           <br />
           <b
-            >В частности, у нас вы сможете найти запчасти для таких автомобилей,
-            как:</b
+            >В частности, у нас вы сможете найти запчасти для таких автомобилей, как:</b
           >
           <br />
           <br />
@@ -437,6 +458,6 @@
     </div>
     <div class="blur_bg"></div>
     <div class="blur_bg1"></div>
-    <script src="{% static 'js/index.js' %}"></script>
+    <script src="./js/index.js"></script>
   </body>
 </html>

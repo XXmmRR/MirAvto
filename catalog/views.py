@@ -5,20 +5,34 @@ from django.views.generic import DetailView, ListView, TemplateView
 # Create your views here.
 
 
-class HomePageView(TemplateView):
+class HomePageView(ListView):
     template_name = 'HomePage.html'
+    model = PartList
+    context_object_name = 'parts'
 
 
-class DeliveryPageView(TemplateView):
+class FeedBackPageView(ListView):
+    template_name = 'CallBackPage.html'
+    model = PartList
+    context_object_name = 'parts'
+
+
+class DeliveryPageView(ListView):
     template_name = 'deliveryPage.html'
+    model = PartList
+    context_object_name = 'parts'
 
 
-class PayPageView(TemplateView):
+class PayPageView(ListView):
     template_name = 'PayPage.html'
+    model = PartList
+    context_object_name = 'parts'
 
 
-class ContactPageView(TemplateView):
+class ContactPageView(ListView):
     template_name = 'Contact.html'
+    model = PartList
+    context_object_name = 'parts'
 
 
 class CatalogView(ListView):
