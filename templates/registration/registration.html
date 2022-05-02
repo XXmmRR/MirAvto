@@ -1,15 +1,16 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./sass/style.scss" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link rel="stylesheet" href="{% static 'sass/style.scss' %}" />
     <title>market</title>
 </head>
 <body>
   
-    <img src="./image/bg.jpg" alt="#" class="z_index_img" />
+    <img src="{% static 'image/bg.jpg' %}" alt="#" class="z_index_img" />
     <div class="search_block">
       <h2>Поиск по каталогу</h2>
       <input type="text">
@@ -19,7 +20,7 @@
     <nav>
       <div class="container_nav">
         <div class="burg_menu">
-          <img src="./icon/134216_menu_lines_hamburger_icon.png" alt="">
+          <img src="{% static 'icon/134216_menu_lines_hamburger_icon.png' %}" alt="">
         </div>
         <div class="two_block_in_cont_nav first">
           <div class="six_block_on_top"><a href="./HomePage.html">Главная</a></div>
@@ -31,15 +32,15 @@
         </div>
         <div class="two_block_in_cont_nav second">
           <div class="two_block_log_and_reg log1">
-            <img src="./icon/3671785_key_icon.png" alt="" />
+            <img src="{% static 'icon/3671785_key_icon.png' %}" alt="" />
             <p>Вход</p>
           </div>
           <div class="two_block_log_and_reg">
-            <img src="./icon/signup-icon-29.jpg" alt="" />
+            <img src="{% static 'icon/signup-icon-29.jpg' %}" alt="" />
             <p>Регистрация</p>
           </div>
           <div class="two_block_log_and_reg log1 searc_log">
-            <img src="./icon/211817_search_strong_icon.png" alt="" />
+            <img src="{% static 'icon/211817_search_strong_icon.png' %}" alt="" />
             <p>Поиск по каталогу</p>
           </div>
         </div>
@@ -68,7 +69,7 @@
         <div class="three_block_in_header_cont first_block_in_header_cont">
           <div>
             <img
-            src="./image/new_logo-removebg-preview.png"
+            src="{% static 'image/new_logo-removebg-preview.png' %}"
             alt=""
           />
           </div>
@@ -82,7 +83,7 @@
           <div class="flex_div">
             <input type="text" />
             <button>
-              <img src="./icon/211817_search_strong_icon.png" alt="" />
+              <img src="{% static 'icon/211817_search_strong_icon.png' %}" alt="" />
               <p>Найти</p>
             </button>
           </div>
@@ -99,7 +100,7 @@
           <div class="two_block_in_header_cont second_header_cont">
             <p class="display">Каталог</p>
             <div class="img_and_text">
-              <img src="./icon/186387_cart_shopping_icon.png" alt="" />
+              <img src="{% static 'icon/186387_cart_shopping_icon.png' %}" alt="" />
             </div>
             <div class="img_and_text">
               <div class="cart_blocks">
@@ -132,17 +133,11 @@
       
         </div>
             <div class="three_block_grid_and_info">
-                <form action="#" name="reg" class="reg">
-                    <div class="four_block_in_form"><p>Логин</p><input type="text"></div>
-                    <div class="four_block_in_form"><P>Пароль</P><input type="password"></div>
-                    <div class="four_block_in_form"><P>повторите </P><input type="password"></div>
-                    <br>
-                    <div class="four_block_in_form"><p>ФИО</p><input type="text"></div>
-                    <div class="four_block_in_form"><p>Телефон</p><input type="tel" placeholder="+998(xx) xxx-xx-xx "></div>
-                    <div class="four_block_in_form"><p>Адрес доставки</p><input type="text">
-                    </div>
-                    <button><p>отправить</p></button>
-                </form>
+        <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Sign Up</button>
+        </form>
             </div>       
         </div>
       </div>
@@ -150,7 +145,7 @@
         <div class="footer_container">
           <div class="four_block_in_footer first_footer_block">
             <a href="./HomePage.html"> <img
-              src="./image/new_logo-removebg-preview.png"
+              src="{% static 'image/new_logo-removebg-preview.png' %}"
               alt=""
             /></a>
             <h2>продажа автозапчастей</h2>
@@ -187,7 +182,7 @@
 
         </form></div> </div>
        <div class="div_button_for_style"> <button><a href="#">Регистрация</a></button> <button class="retail"> Забыли пароль? </button></div>
-       <img src="./icon/211651_close_round_icon.png" alt="#" class="close">
+       <img src="{% static 'icon/211651_close_round_icon.png' %}" alt="#" class="close">
       </div>
       <div class=" one_div">
         <h2> Забыли пароль?</h2>
@@ -201,7 +196,7 @@
 
         </form></div> </div>
      
-       <img src="./icon/211651_close_round_icon.png" alt="#" class="close1">
+       <img src="{% static 'icon/211651_close_round_icon.png' %}" alt="#" class="close1">
       </div>
       <div class="log_in_div one_log">
         <h2> Оставить заявку</h2>
@@ -218,11 +213,10 @@
 
         </form></div> </div>
        <div class="div_button_for_style"> <button><a href="#">Регистрация</a></button> <button class="retail"> Забыли пароль? </button></div>
-       <img src="./icon/211651_close_round_icon.png" alt="#" class="close11">
+       <img src="{% static 'icon/211651_close_round_icon.png' %}" alt="#" class="close11">
       </div>
       <div class="blur_bg"></div>
       <div class="blur_bg1"></div>
       <div class="blur_bg12"></div>
-    <script src="./js/index.js"></script>
 </body>
 </html>
