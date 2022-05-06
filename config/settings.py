@@ -134,3 +134,7 @@ MEDIA_ROOT = str(BASE_DIR.joinpath('media'))
 # User settings
 LOGIN_REDIRECT_URL = 'home'
 AUTH_USER_MODEL = 'accounts.CustomUser'
+
+# Email settings
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
