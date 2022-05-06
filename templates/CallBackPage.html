@@ -82,11 +82,13 @@
         <div class="three_block_in_header_cont second_block_in_header_cont">
           <p class="catalog_search">Поиск по каталогу</p>
           <div class="flex_div">
-            <input type="text" />
-            <button>
+            <form class="input-group filter-bar-search" action="{% url 'search' %}" method="get">
+            <input type="text" name="q">
+            <button type="button">
               <img src="{% static 'icon/211817_search_strong_icon.png' %}" alt="" />
               <p>Найти</p>
             </button>
+            </form>
           </div>
           <div class="div_phone"><p class="phone_number">(999)ххх-хх-хх</p>
             <p class="phone_number">(999)ххх-хх-хх</p></div>

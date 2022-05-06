@@ -1,5 +1,5 @@
 from .views import CatalogView, CatalogDetailView, HomePageView, ContactPageView, PayPageView, DeliveryPageView, \
-    FeedBackPageView, PartsListView
+    FeedBackPageView, PartsListView, PartSearchListView
 from django.urls import path
 
 urlpatterns = [
@@ -9,6 +9,7 @@ urlpatterns = [
     path('delivery/', DeliveryPageView.as_view(), name='delivery'),
     path('contact/', ContactPageView.as_view(), name='contact'),
     path('catalog/', CatalogView.as_view(), name='catalog'),
+    path('catalog/search/', PartSearchListView.as_view(), name='search'),
     path('catalog/<slug:slug>/', CatalogDetailView, name='details'),
     path('catalog/<slug:slug>/<slug:category>/', PartsListView, name='cart'),
 ]

@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import PartList, Category, Part
 from django.views.generic import DetailView, ListView, TemplateView
+from django.db.models import Q
 
 # Create your views here.
 
@@ -51,6 +52,18 @@ def PartsListView(request, slug, category):
     parts_panel = PartList.objects.all()
     part = Part.objects.filter(category__category_slug=category, category__part_list__list_slug=slug)
     return render(request, 'add_cart.html', {'parts_main': part, 'parts': parts_panel})
+
+
+class PartSearchListView(ListView):
+    model = PartList
+    context_object_name = 'parts'
+    template_name = 'Catalog.html'
+
+    def get_queryset(self):  # new
+        query = self.request.GET.get('q')
+        return PartList.objects.filter(
+            Q(list_name__icontains=query)
+        )
 
 # class PartsListView(ListView):
 #     template_name = 'add_cart.html'
