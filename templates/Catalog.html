@@ -32,10 +32,10 @@
         <div class="two_block_in_cont_nav second">
           <div class="two_block_log_and_reg log1">
             <img src="{% static 'icon/3671785_key_icon.png' %}" alt="" />
-            <p>Вход</p>
+            <p><a href="{% url 'login' %}">Вход</a></p>
           </div>
           <div class="two_block_log_and_reg">
-            <a href="./registration.html"> <img src="{% static 'icon/signup-icon-29.jpg' %}" alt="" />
+            <a href="{% url 'register' %}"> <img src="{% static 'icon/signup-icon-29.jpg' %}" alt="" />
               <p>Регистрация</p></a>
           </div>
           <div class="two_block_log_and_reg log1 searc_log">
@@ -119,8 +119,6 @@
             <p>Скачать общий прайс</p>
             <p>(04 апреля 2022г)</p>
           </div>
-
-           <!-- Родитель боковых элементов -->
           {% for part in parts %}
           <div class="div_for_aside_blocks">
             <div class="aside_info_blocks">
@@ -140,7 +138,6 @@
             </div>
           </div>
           {% endfor %}
-
         </div>
         <div class="two_flex_block_in_container second_flex_block_in_container second_page_flex_block">
           
@@ -197,7 +194,7 @@
         </div>
       </footer>
       <div class="log_in_div">
-        <h2>  Вход на сайт</h2>
+        <h2>Вход на сайт</h2>
         <div class="div">
         <div class="div_for_form height "><p>Логин</p>
         <p >Пароль</p></div>

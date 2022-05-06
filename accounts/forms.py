@@ -9,6 +9,9 @@ class CustomUserCreationForm(UserCreationForm):
     class Meta(UserCreationForm):
         model = CustomUser
         fields = ('username', 'password1', 'password2', 'full_name', 'email', 'phone', 'address',)
+    widgets = {
+        
+    }
 
 
 class CustomUserChangeForm(UserChangeForm):
