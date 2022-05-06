@@ -22,12 +22,12 @@
           <img src="{% static 'icon/134216_menu_lines_hamburger_icon.png' %}" alt="">
         </div>
         <div class="two_block_in_cont_nav first">
-          <div class="six_block_on_top"><a href="./HomePage.html">Главная</a></div>
-          <div class="six_block_on_top first_hov_block"><a href="./Catalog.html">Каталог автозапчастей</a></div>
-          <div class="six_block_on_top"><a href="./deliveryPage.html">Доставка</a></div>
-          <div class="six_block_on_top"><a href="./PayPage.html">Оплата</a></div>
-          <div class="six_block_on_top"><a href="./CallBackPage.html">Обратная связь</a></div>
-          <div class="six_block_on_top"><a href="./Contact.html">Контакты</a></div>
+          <div class="six_block_on_top"><a href="{% url 'home' %}">Главная</a></div>
+          <div class="six_block_on_top first_hov_block"><a href="{% url 'catalog' %}">Каталог автозапчастей</a></div>
+          <div class="six_block_on_top"><a href="{% url 'delivery' %}">Доставка</a></div>
+          <div class="six_block_on_top"><a href="{% url 'pay_page' %}">Оплата</a></div>
+          <div class="six_block_on_top"><a href="{% url 'feedback' %}">Обратная связь</a></div>
+          <div class="six_block_on_top"><a href="{% url 'contact' %}">Контакты</a></div>
         </div>
         <div class="two_block_in_cont_nav second">
           <div class="two_block_log_and_reg log1">
@@ -35,7 +35,7 @@
             <p>Вход</p>
           </div>
           <div class="two_block_log_and_reg">
-            <a href="./registration.html"> <img src="{% static 'icon/signup-icon-29.jpg' %}" alt="" />
+            <a href="{% url 'register' %}"> <img src="{% static 'icon/signup-icon-29.jpg' %}" alt="" />
               <p>Регистрация</p></a>
           </div>
           <div class="two_block_log_and_reg log1 searc_log">
@@ -46,21 +46,21 @@
       </div>
       <div class="two_block_in_cont_nav first1">
         <div class="six_block_on_top">
-          <a href="./HomePage.html">Главная</a>
+          <a href="{% url 'home' %}">Главная</a>
         </div>
         <div class="six_block_on_top">
-          <a href="./Catalog.html">Каталог автозапчастей</a>
+          <a href="{% url 'catalog' %}">Каталог автозапчастей</a>
         </div>
         <div class="six_block_on_top ">
-          <a href="./deliveryPage.html">Доставка</a>
+          <a href="{% url 'delivery' %}">Доставка</a>
         </div>
         <div class="six_block_on_top">
-          <a href="./PayPage.html">Оплата</a>
+          <a href="{% url 'pay_page' %}">Оплата</a>
         </div>
         <div class="six_block_on_top">
-          <a href="./CallBackPage.html">Обратная связь</a>
+          <a href="{% url 'feedback' %}">Обратная связь</a>
         </div>
-        <div class="six_block_on_top first_hov_block"><a href="./Contact.html">Контакты</a></div>
+        <div class="six_block_on_top first_hov_block"><a href="{% url 'contact' %}">Контакты</a></div>
       </div>
     </nav>
     <header>
@@ -142,16 +142,16 @@
         </div>
         <div class="two_flex_block_in_container second_flex_block_in_container second_page_flex_block">
           
-            <div class="three_block_grid_and_info"> <a href="./HomePage.html">Главная</a> <span>/</span> <a href="./Catalog.html"> Каталог</a>
+            <div class="three_block_grid_and_info"> <a href="{% url 'home' %}">Главная</a> <span>/</span> <a href="{% url 'catalog' %}"> Каталог</a>
             <h2>Каталог автозапчастей</h2></div>
             <div class="three_block_grid_and_info grid_wrap grid_wrap1">
                 {% for category in categories %}
-                <a href="./add_cart.html">
+                <a href="{% url 'cart' category.get_slug category.category_slug %}">
                     <div class="grid_item1">
                     
                     <img src="{{category.image.url}}" alt="#">
                     <div class="bottom_info_block">
-                        <p>{{category.category_name}} {{category.get_slug}}</p>
+                        <p>{{category.category_name}}</p>
                     </div>
                 </div>
                 </a>
@@ -168,7 +168,7 @@
       <footer>
         <div class="footer_container">
           <div class="four_block_in_footer first_footer_block">
-            <a href="./HomePage.html"> <img
+            <a href="{% url 'home' %}"> <img
               src="{% static 'image/new_logo-removebg-preview.png' %}"
               alt=""
             /></a>
@@ -185,12 +185,12 @@
           <a href="./add_cart.html"> самарканд, хххххххх <br> хххххх, хххххххххх, хх 26 хххххххх ххххххх</a>
         </div>
           <div class="four_block_in_footer fourth_footer_block">
-            <div class="six_block_in_footer"><a href="./HomePage.html">Главная</a></div>
-          <div class="six_block_in_footer"><a href="./Catalog.html">Каталог автозапчастей</a></div>
-          <div class="six_block_in_footer"><a href="./deliveryPage.html">доставка</a></div>
-          <div class="six_block_in_footer"><a href="./PayPage.html">оплата</a></div>
-          <div class="six_block_in_footer"><a href="./CallBackPage.html">Обратная связь</a></div>
-          <div class="six_block_in_footer"><a href="./Contact.html">Контакты</a></div>
+            <div class="six_block_in_footer"><a href="{% url 'home' %}">Главная</a></div>
+          <div class="six_block_in_footer"><a href="{% url 'catalog' %}">Каталог автозапчастей</a></div>
+          <div class="six_block_in_footer"><a href="{% url 'delivery' %}">доставка</a></div>
+          <div class="six_block_in_footer"><a href="{% url 'pay_page' %}">оплата</a></div>
+          <div class="six_block_in_footer"><a href="{% url 'feedback' %}">Обратная связь</a></div>
+          <div class="six_block_in_footer"><a href="{% url 'contact' %}">Контакты</a></div>
           </div>
         
       </footer>
