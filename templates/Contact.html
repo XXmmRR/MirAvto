@@ -41,15 +41,19 @@
           <div class="six_block_on_top first_hov_block"><a href="{% url 'contact' %}">Контакты</a></div>
         </div>
         <div class="two_block_in_cont_nav second">
-          <div class="two_block_log_and_reg log1">
-            <img src="{% static 'icon/3671785_key_icon.png' %}" alt="" />
-            <p><a href="{% url 'login' %}">Вход</a></p>
-          </div>
+                    {% if user.is_authenticated %}
+                    <p style="color:#e7bc5a">Добро пожаловать {{user.username}}</p>
+                    {% else %}
+            <div class="two_block_log_and_reg log1">
+              <img src="{% static 'icon/3671785_key_icon.png' %}" alt="" />
+              <p><a href="{% url 'login' %}">Вход</a></p>
+            </div>
+
           <div class="two_block_log_and_reg">
             <a href="{% url 'register' %}"> <img src="{% static 'icon/signup-icon-29.jpg' %}" alt="" />
               <p>Регистрация</p></a>
           </div>
-          <div class="two_block_log_and_reg log1 searc_log">
+            {% endif %}          <div class="two_block_log_and_reg log1 searc_log">
             <img src="{% static 'icon/211817_search_strong_icon.png' %}" alt="" />
             <p>Поиск по каталогу</p>
           </div>
