@@ -66,16 +66,8 @@ class PartSearchListView(ListView):
     def get_queryset(self):  # new
         query = self.request.GET.get('q')
         return PartList.objects.filter(
-            Q(list_name__icontains=query)
+            Q(mark__icontains=query)
         )
-
-# class PartsListView(ListView):
-#     template_name = 'add_cart.html'
-#     model = Part
-#     context_object_name = 'parts'
-#
-#      def get_queryset(self, category):
-#           return Part.object.filter(category__category_slug=category)
 
 
 class CartPageView(TemplateView):

@@ -5,6 +5,7 @@ from django.db import models
 
 class PartList(models.Model):
     list_name = models.CharField(max_length=250,  verbose_name='Имя для категории')
+    mark = models.CharField(max_length=250, verbose_name='Марка')
     list_slug = models.SlugField(max_length=255, verbose_name='slug для категории', unique=True)
     image = models.ImageField(upload_to='images/shop', blank=True)
 
