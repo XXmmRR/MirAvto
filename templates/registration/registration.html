@@ -86,7 +86,7 @@
         <div class="three_block_in_header_cont second_block_in_header_cont">
           <p class="catalog_search">Поиск по каталогу</p>
           <div class="flex_div">
-            <form class="input-group filter-bar-search" action="{% url 'search' %}" method="get">
+            <form class="input-group filter-bar-search flex_div" action="{% url 'search' %}" method="get">
             <input type="text" name="q">
             <button type="button">
               <img src="{% static 'icon/211817_search_strong_icon.png' %}" alt="" />
@@ -109,8 +109,10 @@
             <div class="img_and_text">
               <img src="{% static 'icon/186387_cart_shopping_icon.png' %}" alt="" />
             </div>
+              <a href="basket.html">
             <div class="img_and_text">
               <div class="cart_blocks">
+
                 <span>товаров</span> <span class="quantity one">0</span>
               </div>
               <div class="cart_blocks">
@@ -118,16 +120,14 @@
                 <span>Р</span>
               </div>
             </div>
+        </a>
           </div>
         </div>
       </div>
     </header>
       <div class="container">
         <div class="two_flex_block_in_container first_flex_block_in_container">
-          <div class="div_for_text">
-            <p>Скачать общий прайс</p>
-            <p>(04 апреля 2022г)</p>
-          </div>
+         
           {% for part in parts %}
           <div class="div_for_aside_blocks">
             <div class="aside_info_blocks">
@@ -157,14 +157,16 @@
           {% if user.is_authenticated %}
               <p>У вас уже существует аккаунт</p>
           {% else %}
-            <div class="three_block_grid_and_info">
+            <div class="three_block_grid_and_info threee">
         <form method="post">
         {% csrf_token %}
         {% for f in form %}
+<div class="four_block_in_form">
         <p><label class="form-label" for="{{ f.id_for_label }}">{{f.label}}: </label>{{ f }}</p>
+</div>
         <div class="form-error">{{ f.errors }}</div>
         {% endfor %}
-        <button type="submit">Sign Up</button>
+        <button type="submit"><p> Sign Up </p></button>
         </form>
             </div>
           {% endif %}

@@ -1,7 +1,10 @@
 from django.shortcuts import render
 from .models import PartList, Category, Part
 from django.views.generic import DetailView, ListView, TemplateView
+from django.shortcuts import get_object_or_404
+from django.http import Http404
 from django.db.models import Q
+
 
 # Create your views here.
 
@@ -45,6 +48,7 @@ class CatalogView(ListView):
 def CatalogDetailView(request, slug):
     parts = PartList.objects.all()
     categories = Category.objects.filter(part_list__list_slug=slug)
+    get_object_or_404(PartList, list_slug=slug)
     return render(request, 'Catalog_item_page.html', {'categories': categories, 'parts': parts})
 
 
@@ -73,3 +77,6 @@ class PartSearchListView(ListView):
 #      def get_queryset(self, category):
 #           return Part.object.filter(category__category_slug=category)
 
+
+class CartPageView(TemplateView):
+    template_name = "basket.html"

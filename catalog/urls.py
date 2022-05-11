@@ -1,5 +1,5 @@
 from .views import CatalogView, CatalogDetailView, HomePageView, ContactPageView, PayPageView, DeliveryPageView, \
-    FeedBackPageView, PartsListView, PartSearchListView
+    FeedBackPageView, PartsListView, PartSearchListView, CartPageView
 from django.urls import path
 
 urlpatterns = [
@@ -12,4 +12,5 @@ urlpatterns = [
     path('catalog/search/', PartSearchListView.as_view(), name='search'),
     path('catalog/<slug:slug>/', CatalogDetailView, name='details'),
     path('catalog/<slug:slug>/<slug:category>/', PartsListView, name='cart'),
+    path('cart/',  CartPageView.as_view(), name='basket')
 ]

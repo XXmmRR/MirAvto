@@ -14,7 +14,7 @@
     <div class="search_block">
       <h2>Поиск по каталогу</h2>
       <input type="text">
-      <button> Найти</button>
+      <button> Найи</button>
     </div>
     <div class="bg_block"></div>
     <nav>
@@ -100,7 +100,7 @@
         <div class="three_block_in_header_cont second_block_in_header_cont">
           <p class="catalog_search">Поиск по каталогу</p>
           <div class="flex_div">
-            <form class="input-group filter-bar-search" action="{% url 'search' %}" method="get">
+            <form class="input-group filter-bar-search flex_div" action="{% url 'search' %}" method="get">
             <input type="text" name="q">
             <button type="button">
               <img src="{% static 'icon/211817_search_strong_icon.png' %}" alt="" />
@@ -123,8 +123,10 @@
             <div class="img_and_text">
               <img src="{% static 'icon/186387_cart_shopping_icon.png' %}" alt="" />
             </div>
+              <a href="{% url 'basket' %}">
             <div class="img_and_text">
               <div class="cart_blocks">
+
                 <span>товаров</span> <span class="quantity one">0</span>
               </div>
               <div class="cart_blocks">
@@ -132,16 +134,14 @@
                 <span>Р</span>
               </div>
             </div>
+        </a>
           </div>
         </div>
       </div>
     </header>
     <div class="container">
       <div class="two_flex_block_in_container first_flex_block_in_container">
-        <div class="div_for_text">
-          <p>Скачать общий прайс</p>
-          <p>(04 апреля 2022г)</p>
-        </div>
+
 
 
          <!-- Родитель боковых элементов -->
@@ -169,45 +169,7 @@
         
       </div>
       <div class="two_flex_block_in_container second_flex_block_in_container">
-        <div class="container_for_carousel">
-          <input
-            type="radio"
-            name="slider"
-            id="slide-1-trigger"
-            class="trigger"
-            checked
-          />
-          <label class="btn" for="slide-1-trigger"></label>
-          <input
-            type="radio"
-            name="slider"
-            id="slide-2-trigger"
-            class="trigger"
-          />
-          <label class="btn" for="slide-2-trigger"></label>
-          <input
-            type="radio"
-            name="slider"
-            id="slide-3-trigger"
-            class="trigger"
-          />
-          <label class="btn" for="slide-3-trigger"></label>
-          <input
-            type="radio"
-            name="slider"
-            id="slide-4-trigger"
-            class="trigger"
-          />
-          <label class="btn" for="slide-4-trigger"></label>
-          <div class="slide-wrapper">
-            <div id="slide-role">
-              <div class="slide slide-1"></div>
-              <div class="slide slide-2"></div>
-              <div class="slide slide-3"></div>
-              <div class="slide slide-4"></div>
-            </div>
-          </div>
-        </div>
+
         <div class="eight_block_from_main">
           <h2>Магазин запчастей "Мир Авто"</h2>
           <p>
@@ -223,20 +185,20 @@
         <div class="eight_block_from_main stamp">
           <a href="./VAZ_page.html">
             <div class="four_stamp_block">
-              <img src="{% static 'image/lada-logo-1.svg' %}" alt="#" />
+              <img src="{% static 'image/vaz_catalogue_notes-file_-108817-840.jpg' %}" alt="#" />
               <p>Ваз</p>
             </div>
           </a>
           <a href="./KIA_Page.html">
             <div class="four_stamp_block">
-              <img src="{% static 'image/Без названия.png' %}" alt="#" />
+              <img src="{% static 'image/kia_logo.png' %}" alt="#" class="kia_logo"/>
               <p>Киа</p>
             </div>
           </a>
           <a href="./Renault_page.html">
             <div class="four_stamp_block">
               <img
-                src="{% static 'image/renault-logo-18DB8E9AE7-seeklogo.com.png' %}"
+                src="{% static 'image/renault.png' %}"
                 alt="#"
               />
               <p>Рено</p>
@@ -463,6 +425,6 @@
     </div>
     <div class="blur_bg"></div>
     <div class="blur_bg1"></div>
-    <script src="./js/index.js"></script>
+    <script src="{% static 'js/index.js' %}"></script>
   </body>
 </html>

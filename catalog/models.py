@@ -23,11 +23,11 @@ class Category(models.Model):
     category_slug = models.SlugField(max_length=250, verbose_name='slug поле подкатегории')
     image = models.ImageField(upload_to='images/shop', blank=True)
 
-    def get_slug(self):
-        return self.part_list.list_slug
-
     def __str__(self):
         return f'{self.category_name} {self.part_list.list_name}'
+
+    def get_slug(self):
+        return self.part_list.list_slug
 
     class Meta:
         db_table = "Категория"

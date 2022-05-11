@@ -79,11 +79,13 @@
         <div class="three_block_in_header_cont second_block_in_header_cont">
           <p class="catalog_search">Поиск по каталогу</p>
           <div class="flex_div">
-            <input type="text" />
-            <button>
-              <img src="./icon/211817_search_strong_icon.png" alt="" />
+            <form class="input-group filter-bar-search flex_div" action="{% url 'search' %}" method="get">
+            <input type="text" name="q">
+            <button type="button">
+              <img src="{% static 'icon/211817_search_strong_icon.png' %}" alt="" />
               <p>Найти</p>
             </button>
+            </form>
           </div>
           <div class="div_phone"><p class="phone_number">(999)ххх-хх-хх</p>
             <p class="phone_number">(999)ххх-хх-хх</p></div>
@@ -100,8 +102,10 @@
             <div class="img_and_text">
               <img src="./icon/186387_cart_shopping_icon.png" alt="" />
             </div>
+              <a href="basket.html">
             <div class="img_and_text">
               <div class="cart_blocks">
+
                 <span>товаров</span> <span class="quantity one">0</span>
               </div>
               <div class="cart_blocks">
@@ -109,16 +113,14 @@
                 <span>Р</span>
               </div>
             </div>
+        </a>
           </div>
         </div>
       </div>
     </header>
       <div class="container">
         <div class="two_flex_block_in_container first_flex_block_in_container">
-          <div class="div_for_text">
-            <p>Скачать общий прайс</p>
-            <p>(04 апреля 2022г)</p>
-          </div>
+
           <div class="div_for_aside_blocks">
 
           </div>
