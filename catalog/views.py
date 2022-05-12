@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from .models import PartList, Category, Part
+from .models import PartList, Category, Part, Mark
 from django.views.generic import DetailView, ListView, TemplateView
 from django.shortcuts import get_object_or_404
 from django.http import Http404
@@ -12,6 +12,7 @@ from django.db.models import Q
 class HomePageView(ListView):
     template_name = 'HomePage.html'
     model = PartList
+    extra_context = {'marks': Mark.objects.all()}
     context_object_name = 'parts'
 
 
@@ -63,10 +64,26 @@ class PartSearchListView(ListView):
     context_object_name = 'parts'
     template_name = 'Catalog.html'
 
-    def get_queryset(self):  # new
+    def get_queryset(self):
         query = self.request.GET.get('q')
         return PartList.objects.filter(
             Q(mark__icontains=query)
+        )
+
+
+class DetailSearchView(ListView):
+    model = Part
+    context_object_name = 'parts_main'
+    parts_panel = PartList.objects.all()
+    extra_context = {'parts': parts_panel}
+    template_name = 'add_cart.html'
+
+    def get_queryset(self):
+        query = self.request.GET.get('g')
+        return Part.objects.filter(
+            Q(article__icontains=query) |
+            Q(article_second__icontains=query) |
+            Q(part_name__icontains=query)
         )
 
 

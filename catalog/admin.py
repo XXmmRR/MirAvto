@@ -1,13 +1,20 @@
 from django.contrib import admin
-from .models import PartList, Category, Part
+from .models import PartList, Category, Part, Mark
 
 # Register your models here.
 
 
+@admin.register(Mark)
+class MarkAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+    search_fields = ('name',)
+    ordering = ('name',)
+
+
 @admin.register(PartList)
 class PartListAdmin(admin.ModelAdmin):
-    list_display = ('list_name',)
-    search_fields = ('list_name',)
+    list_display = ('list_name', 'mark',)
+    search_fields = ('list_name', 'mark',)
     ordering = ('list_name',)
     prepopulated_fields = {'list_slug': ('list_name',)}
 

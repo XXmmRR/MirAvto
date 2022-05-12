@@ -3,6 +3,14 @@ from django.db import models
 # Create your models here.
 
 
+class Mark(models.Model):
+    name = models.CharField(max_length=250, verbose_name='Название марки')
+    image = models.ImageField(upload_to='images/mark', verbose_name='Картинка')
+
+    class Meta:
+        verbose_name_plural = 'Марки'
+
+
 class PartList(models.Model):
     list_name = models.CharField(max_length=250,  verbose_name='Имя для категории')
     mark = models.CharField(max_length=250, verbose_name='Марка')

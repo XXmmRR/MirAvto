@@ -100,8 +100,8 @@
         <div class="three_block_in_header_cont second_block_in_header_cont">
           <p class="catalog_search">Поиск по каталогу</p>
           <div class="flex_div">
-            <form class="input-group filter-bar-search flex_div" action="{% url 'search' %}" method="get">
-            <input type="text" name="q">
+            <form class="input-group filter-bar-search flex_div" action="{% url 'search_details' %}" method="get">
+            <input type="text" name="g">
             <button type="button">
               <img src="{% static 'icon/211817_search_strong_icon.png' %}" alt="" />
               <p>Найти</p>
@@ -152,13 +152,9 @@
               <img src="{{part.image.url}}" alt="">
               <p class="p1p">{{part.list_name}}</p>
               <div class="selector_menu">
-                <p>Кузовные детали</p>
-                <p>Рулевое управление</p>
-                <p>Тормазная система</p>
-                <p>Трансмиссия</p>
-                <p>Электрооборудование</p>
-                <p>устройства вспомогательные</p>
-                <p>Двигатель</p>
+                {% for category in part.parent.all %}
+                <p>{{category.category_name}}</p>
+                {% endfor %}
               </div>
             </a>
           </div>
@@ -183,33 +179,14 @@
           <br />
         </div>
         <div class="eight_block_from_main stamp">
-          <a href="./VAZ_page.html">
+          {% for mark in marks %}
+          <a href="/catalog/search/?q={{mark.name}}">
             <div class="four_stamp_block">
-              <img src="{% static 'image/vaz_catalogue_notes-file_-108817-840.jpg' %}" alt="#" />
-              <p>Ваз</p>
+              <img src="{{mark.image.url}}" alt="#" class="kia_logo"/>
+              <p>{{mark.name}}</p>
             </div>
           </a>
-          <a href="./KIA_Page.html">
-            <div class="four_stamp_block">
-              <img src="{% static 'image/kia_logo.png' %}" alt="#" class="kia_logo"/>
-              <p>Киа</p>
-            </div>
-          </a>
-          <a href="./Renault_page.html">
-            <div class="four_stamp_block">
-              <img
-                src="{% static 'image/renault.png' %}"
-                alt="#"
-              />
-              <p>Рено</p>
-            </div>
-          </a>
-          <a href="./Chevrolet_page.html">
-            <div class="four_stamp_block">
-              <img src="{% static 'image/Chevrolet_new_logo.png' %}" alt="#" />
-              <p>Шевроле</p>
-            </div>
-          </a>
+          {% endfor %}
         </div>
         <div class="eight_block_from_main">
           <p>
