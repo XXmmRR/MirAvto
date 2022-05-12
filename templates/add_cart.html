@@ -151,13 +151,9 @@
               <img src="{{part.image.url}}" alt="">
               <p class="p1p">{{part.list_name}}</p>
               <div class="selector_menu">
-                <p>Кузовные детали</p>
-                <p>Рулевое управление</p>
-                <p>Тормазная система</p>
-                <p>Трансмиссия</p>
-                <p>Электрооборудование</p>
-                <p>устройства вспомогательные</p>
-                <p>Двигатель</p>
+                {% for category in part.parent.all %}
+                <p>{{category.category_name}}</p>
+                {% endfor %}
               </div>
             </a>
           </div>
