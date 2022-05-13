@@ -235,7 +235,7 @@
                     <span>Итого</span> <span>{{request.session.cart|length}}:</span> <span>{% cart_total_amount %}</span>
                 </div>
                         <form id="click_form" action="https://my.click.uz/services/pay" method="get" target="_blank">
-        <input type="hidden" name="amount" value="1000" />
+        <input type="hidden" name="amount" value="{% cart_total_amount %}" />
         <input type="hidden" name="merchant_id" value="46"/>
         <input type="hidden" name="merchant_user_id" value="4"/>
         <input type="hidden" name="service_id" value="36"/>
