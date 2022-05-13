@@ -1,8 +1,10 @@
-from django.shortcuts import render
-from .models import PartList, Category, Part, Mark
+from django.shortcuts import render, redirect
+from .models import PartList, Category, Product, Mark
 from django.views.generic import DetailView, ListView, TemplateView
 from django.shortcuts import get_object_or_404
-from django.http import Http404
+from django.http import HttpResponse
+from cart.cart import Cart
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 
 
@@ -55,7 +57,7 @@ def CatalogDetailView(request, slug):
 
 def PartsListView(request, slug, category):
     parts_panel = PartList.objects.all()
-    part = Part.objects.filter(category__category_slug=category, category__part_list__list_slug=slug)
+    part = Product.objects.filter(category__category_slug=category, category__part_list__list_slug=slug)
     return render(request, 'add_cart.html', {'parts_main': part, 'parts': parts_panel})
 
 
@@ -72,7 +74,7 @@ class PartSearchListView(ListView):
 
 
 class DetailSearchView(ListView):
-    model = Part
+    model = Product
     context_object_name = 'parts_main'
     parts_panel = PartList.objects.all()
     extra_context = {'parts': parts_panel}
@@ -80,7 +82,7 @@ class DetailSearchView(ListView):
 
     def get_queryset(self):
         query = self.request.GET.get('g')
-        return Part.objects.filter(
+        return Product.objects.filter(
             Q(article__icontains=query) |
             Q(article_second__icontains=query) |
             Q(part_name__icontains=query)
@@ -89,3 +91,47 @@ class DetailSearchView(ListView):
 
 class CartPageView(TemplateView):
     template_name = "basket.html"
+
+
+@login_required
+def cart_add(request, id):
+    cart = Cart(request)
+    product = Product.objects.get(id=id)
+    cart.add(product=product)
+    return redirect("basket")
+
+
+@login_required
+def item_clear(request, id):
+    cart = Cart(request)
+    product = Product.objects.get(id=id)
+    cart.remove(product)
+    return redirect("basket")
+
+
+@login_required
+def item_increment(request, id):
+    cart = Cart(request)
+    product = Product.objects.get(id=id)
+    cart.add(product=product)
+    return redirect("basket")
+
+
+@login_required
+def item_decrement(request, id):
+    cart = Cart(request)
+    product = Product.objects.get(id=id)
+    cart.decrement(product=product)
+    return redirect("basket")
+
+
+@login_required
+def cart_clear(request):
+    cart = Cart(request)
+    cart.clear()
+    return redirect("basket")
+
+
+@login_required
+def payment(request):
+    return HttpResponse("Вы провели оплату")

@@ -43,19 +43,19 @@ class Category(models.Model):
         verbose_name_plural = "Категории"
 
 
-class Part(models.Model):
+class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, blank=True, null=True, related_name='category',
                                  verbose_name='Категория')
     article = models.CharField(max_length=255, verbose_name='Оригинальный артикул')
     article_second = models.CharField(max_length=255, verbose_name='Дополнительный артикул')
-    part_name = models.CharField(max_length=255, verbose_name='Наименование')
+    name = models.CharField(max_length=255, verbose_name='Наименование', blank=True, null=True)
     part_exist = models.BooleanField(verbose_name='Наличие')
     part_slug = models.SlugField(max_length=250, verbose_name='Слаг')
-    part_price = models.IntegerField(verbose_name='Цена запчасти')
+    price = models.DecimalField(max_digits=6, decimal_places=2, blank=True, null=True)
     image = models.ImageField(upload_to='images/shop',)
 
     def __str__(self):
-        return f'{self.part_name}:{self.part_price}'
+        return f'{self.name}:{self.price}'
 
     class Meta:
         db_table = "Деталь"

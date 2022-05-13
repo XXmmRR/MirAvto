@@ -1,4 +1,6 @@
 {% load static %}
+{% load cart_tag %}
+{% load myfilters %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -212,116 +214,40 @@
             </div>
           </div>
           <div class="top_and_bottom_block second_block_top">
+            {% for key,value in request.session.cart.items %}
             <div class="div_in_massive">
               <div class="ten_procent ten_procent1">
-                 <img src="{% static 'icon/no_camera.png' %}" alt="" class="imgg">
+                <img src="{{value.image}}" alt="" class="imgg">
               </div>
               <div class="ten_procent ten_procent2"><a href="#" class="">5658695865</a></div>
               <div class="ten_procent ten_procent3"><a href="#">435436546546</a>
                 <div class="del_block">
-                    <p>Удалить</p>
+                  <a href="{% url 'item_clear' value.product_id %}"><p>Удалить</p></a>
                 </div></div>
-              <div class="fourty_procent"><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis expedita beatae odio.</a></div>
-              <div class="thirdty_procent"><span>232</span> <span>232</span>
-           
+              <div class="fourty_procent"><a href="#">{{value.name}}.</a></div>
+              <div class="thirdty_procent"><span>{{value.price}}</span> <span>{{ value.price|multiply:value.quantity }} {{value.quantity}}</span></div>
             </div>
-          
-            </div>
-            <div class="div_in_massive">
-              <div class="ten_procent ten_procent1">
-                <img src="{% static 'icon/no_camera.png' %}"  class="imgg">
-              </div>
-              <div class="ten_procent ten_procent2"><a href="#" class="">5658695865</a></div>
-              <div class="ten_procent ten_procent3"><a href="#">435436546546</a>
-                <div class="del_block">
-                    <p>Удалить</p>
-                </div></div>
-              <div class="fourty_procent"><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis expedita beatae odio.</a></div>
-              <div class="thirdty_procent"><span>100</span> <span>232</span></div>
-            </div>
-            <div class="div_in_massive">
-              <div class="ten_procent ten_procent1">
-                <img src="{% static 'icon/no_camera.png' %}" alt="" class="imgg">
-              </div>
-              <div class="ten_procent ten_procent2"><a href="#" class="">5658695865</a></div>
-              <div class="ten_procent ten_procent3"><a href="#">435436546546</a>
-                <div class="del_block">
-                    <p>Удалить</p>
-                </div></div>
-              <div class="fourty_procent"><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis expedita beatae odio.</a></div>
-              <div class="thirdty_procent"><span>233</span> <span>232</span></div>
-            </div>
-            <div class="cart_div">
-          <div class="div_item">
-            <div class="width20">
-               <img src="{% static 'icon/no_camera.png' %}" alt="">
-            </div>
-            <div class="width80">
-              <p>Артикул : <span>43654654654</span></p>
-              <p>Ориг.артикул : <span>43654654654</span></p>
-              <p class="color">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis exercitationem cupiditate reprehenderit?</p>
-              <p>Цена : <span>4333</span></p>
-              <p>Сумма : <span>3222</span></p>
-              <div class="del_block">
-                <p>Удалить</p>
-            </div>
-            </div>
-          </div>
-          <div class="div_item">
-            <div class="width20">
-             <img src="{% static 'icon/no_camera.png' %}" alt="">
-            </div>
-            <div class="width80">
-              <p>Артикул : <span>43654654654</span></p>
-              <p>Ориг.артикул : <span>43654654654</span></p>
-              <p class="color">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis exercitationem cupiditate reprehenderit?</p>
-              <p>Цена : <span>4333</span></p>
-              <p>Сумма : <span>1222</span></p>
-              <div class="del_block">
-                <p>Удалить</p>
-            </div>
-            </div>
-          </div>
-          <div class="div_item">
-            <div class="width20">
-              <img src="{% static 'icon/no_camera.png' %}" alt="">
-            </div>
-            <div class="width80">
-              <p>Артикул : <span>43654654654</span></p>
-              <p>Ориг.артикул : <span>43654654654</span></p>
-              <p class="color">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis exercitationem cupiditate reprehenderit?</p>
-              <p>Цена : <span>4333</span></p>
-              <p>Сумма : <span>1222</span></p>
-              <div class="del_block">
-                <p>Удалить</p>
-            </div>
-            </div>
-          </div>
-          <div class="div_item">
-            <div class="width20">
-              <img src="{% static 'icon/no_camera.png' %}" alt="">
-            </div>
-            <div class="width80">
-              <p>Артикул : <span>43654654654</span></p>
-              <p>Ориг.артикул : <span>43654654654</span></p>
-              <p class="color">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis exercitationem cupiditate reprehenderit?</p>
-              <p>Цена : <span>4333</span></p>
-              <p>Сумма : <span>1222</span></p>
-              <div class="del_block">
-                <p>Удалить</p>
-            </div>
-            </div>
+            {% endfor %}
           </div>
             </div>
             <div class="all_cash">
                 <div class="div_for_info_in_bottom">
-                    <span>Итого</span> <span>1</span> <span>5520</span>
+                    <span>Итого</span> <span>{{request.session.cart|length}}:</span> <span>{% cart_total_amount %}</span>
                 </div>
+                        <form id="click_form" action="https://my.click.uz/services/pay" method="get" target="_blank">
+        <input type="hidden" name="amount" value="1000" />
+        <input type="hidden" name="merchant_id" value="46"/>
+        <input type="hidden" name="merchant_user_id" value="4"/>
+        <input type="hidden" name="service_id" value="36"/>
+        <input type="hidden" name="transaction_param" value="user23151"/>
+        <input type="hidden" name="return_url" value="сайт поставщика"/>
+        <input type="hidden" name="card_type" value="uzcard"/>
+        <button type="submit" class="click_logo"><i></i>Оплатить через CLICK</button>
+        </form>
             </div>
           </div>
         </div>
         <div class="three_block_grid_and_info">
-
         </div>
       </div>
     </div>

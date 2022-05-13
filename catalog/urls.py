@@ -1,5 +1,6 @@
 from .views import CatalogView, CatalogDetailView, HomePageView, ContactPageView, PayPageView, DeliveryPageView, \
-    FeedBackPageView, PartsListView, PartSearchListView, CartPageView, DetailSearchView
+    FeedBackPageView, PartsListView, PartSearchListView, CartPageView, DetailSearchView, cart_add, cart_clear, \
+    item_clear, item_increment, item_decrement, payment
 from django.urls import path
 
 urlpatterns = [
@@ -13,5 +14,13 @@ urlpatterns = [
     path('catalog/detail/search/', DetailSearchView.as_view(), name='search_details'),
     path('catalog/<slug:slug>/', CatalogDetailView, name='details'),
     path('catalog/<slug:slug>/<slug:category>/', PartsListView, name='cart'),
-    path('cart/',  CartPageView.as_view(), name='basket')
+    path('cart/',  CartPageView.as_view(), name='basket'),
+    path('cart/add/<int:id>/', cart_add, name='cart_add'),
+    path('cart/item_clear/<int:id>/', item_clear, name='item_clear'),
+    path('cart/item_increment/<int:id>/',
+         item_increment, name='item_increment'),
+    path('cart/item_decrement/<int:id>/',
+         item_decrement, name='item_decrement'),
+    path('cart/cart_clear/', cart_clear, name='cart_clear'),
+    path('cart/payment/', payment, name='payment')
 ]

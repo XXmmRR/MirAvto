@@ -199,9 +199,9 @@
               </div>
               <div class="ten_procent ten_procent2"><a href="#" class="">{{part.article}}</a></div>
               <div class="ten_procent ten_procent3"><a href="#">{{article.second}}</a></div>
-              <div class="fourty_procent"><a href="#">{{part.part_name}}</a></div>
+              <div class="fourty_procent"><a href="{% url 'cart_add' part.id %}">{{part.name}}</a></div>
               <div class="thirdty_procent">{% if part.part_exist %}<span>+</span>{% else %}<span>-</span>{% endif %}
-                <span>{{part.part_price}}</span></div>
+                <span>{{part.price}}</span></div>
             </div>
             {% endfor %}
             <div class="cart_div">
