@@ -15,4 +15,4 @@ def cart_total_amount(context):
             total_bill = total_bill + (float(value['price']) * value['quantity'])
         return total_bill
     else:
-        return {'cart_total_amount' : 0}
+        return 0

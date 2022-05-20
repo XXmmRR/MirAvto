@@ -14,7 +14,7 @@ urlpatterns = [
     path('catalog/detail/search/', DetailSearchView.as_view(), name='search_details'),
     path('catalog/<slug:slug>/', CatalogDetailView, name='details'),
     path('catalog/<slug:slug>/<slug:category>/', PartsListView, name='cart'),
-    path('cart/',  CartPageView.as_view(), name='basket'),
+    path('cart/',  CartPageView, name='basket'),
     path('cart/add/<int:id>/', cart_add, name='cart_add'),
     path('cart/item_clear/<int:id>/', item_clear, name='item_clear'),
     path('cart/item_increment/<int:id>/',

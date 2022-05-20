@@ -1,4 +1,7 @@
 {% load static %}
+{% load cart_tag %}
+{% load myfilters %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -112,10 +115,10 @@
             <div class="img_and_text">
               <div class="cart_blocks">
 
-                <span>товаров</span> <span class="quantity one">0</span>
+                <span>товаров</span> <span class="quantity one">{{request.session.cart|length}}</span>
               </div>
               <div class="cart_blocks">
-                <span>на</span> <span class="quantity two">0</span>
+                <span>на</span> <span class="quantity two">{% cart_total_amount %}</span>
                 <span>Р</span>
               </div>
             </div>

@@ -1,5 +1,5 @@
 from django.db import models
-
+from phonenumber_field.modelfields import PhoneNumberField
 # Create your models here.
 
 
@@ -51,7 +51,7 @@ class Product(models.Model):
     name = models.CharField(max_length=255, verbose_name='Наименование', blank=True, null=True)
     part_exist = models.BooleanField(verbose_name='Наличие')
     part_slug = models.SlugField(max_length=250, verbose_name='Слаг')
-    price = models.DecimalField(max_digits=6, decimal_places=2, blank=True, null=True)
+    price = models.DecimalField(max_digits=15, decimal_places=2, blank=True, null=True)
     image = models.ImageField(upload_to='images/shop',)
 
     def __str__(self):
@@ -60,3 +60,26 @@ class Product(models.Model):
     class Meta:
         db_table = "Деталь"
         verbose_name_plural = 'Детали'
+
+
+class Order(models.Model):
+    parts = models.CharField(max_length=2000, verbose_name='Запчасти')
+    total = models.DecimalField(max_digits=15, decimal_places=2, verbose_name='Общая цена')
+    address = models.CharField(max_length=50, verbose_name='Адресс')
+    number = PhoneNumberField(verbose_name='Номер')
+
+    orient = models.CharField(max_length=200, verbose_name='Ориентир', blank=True, null=True)
+    created = models.DateTimeField(auto_now_add=True, verbose_name='Дата создания')
+    user = models.ForeignKey(
+        to='accounts.CustomUser',
+        verbose_name='Пользователь',
+        on_delete=models.SET_NULL,
+        null=True
+    )
+
+    def __str__(self):
+        return f'{self.parts[10:]} {self.total}'
+
+    class Meta:
+        db_table = 'Заказ'
+        verbose_name_plural = 'Заказы'

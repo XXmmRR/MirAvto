@@ -6,7 +6,7 @@ from django.http import HttpResponse
 from cart.cart import Cart
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-
+from .forms import OrderForm
 
 # Create your views here.
 
@@ -89,8 +89,10 @@ class DetailSearchView(ListView):
         )
 
 
-class CartPageView(TemplateView):
-    template_name = "basket.html"
+def CartPageView(request):
+    form = OrderForm()
+    parts_panel = PartList.objects.all()
+    return render(request, "basket.html", {'form': form, 'parts': parts_panel})
 
 
 @login_required

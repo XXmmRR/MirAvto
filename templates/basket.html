@@ -32,16 +32,19 @@
           <div class="six_block_on_top"><a href="{% url 'contact' %}">Контакты</a></div>
         </div>
         <div class="two_block_in_cont_nav second">
-          <div class="two_block_log_and_reg log1">
-            <img src="{% static 'icon/3671785_key_icon.png' %}" alt="" />
-            <p>Вход</p>
-          </div>
+                    {% if user.is_authenticated %}
+                    <p style="color:#e7bc5a">Добро пожаловать {{user.username}}</p>
+                    {% else %}
+            <div class="two_block_log_and_reg log1">
+              <img src="{% static 'icon/3671785_key_icon.png' %}" alt="" />
+              <p><a href="{% url 'login' %}">Вход</a></p>
+            </div>
+
           <div class="two_block_log_and_reg">
-            <a href="./registration.html">
-              <img src="{% static 'icon/signup-icon-29.jpg' %}" alt="" />
-              <p>Регистрация</p></a
-            >
+            <a href="{% url 'register' %}"> <img src="{% static 'icon/signup-icon-29.jpg' %}" alt="" />
+              <p>Регистрация</p></a>
           </div>
+            {% endif %}
           <div class="two_block_log_and_reg log1 searc_log">
             <img src="{% static 'icon/211817_search_strong_icon.png' %}" alt="" />
             <p>Поиск по каталогу</p>
@@ -113,10 +116,10 @@
             <div class="img_and_text">
               <div class="cart_blocks">
 
-                <span>товаров</span> <span class="quantity one">0</span>
+                <span>товаров</span> <span class="quantity one">{{request.session.cart|length}}</span>
               </div>
               <div class="cart_blocks">
-                <span>на</span> <span class="quantity two">0</span>
+                <span>на</span> <span class="quantity two">{% cart_total_amount %}</span>
                 <span>Р</span>
               </div>
             </div>
@@ -132,54 +135,22 @@
 
          <!-- Родитель боковых элементов -->
         <div class="div_for_aside_blocks">
-          <div class="aside_info_blocks">
-            <a href="./Catalog_item_page.html" class="aa">
-              <img src="{% static 'catalog_img/3.jpg' %}" alt="#">
-              <p class="p1p"> lorem</p>
-              <div class="selector_menu">
-                <p>Кузовные детали</p>
-                <p>Рулевое управление</p>
-                <p>Тормазная система</p>
-                <p>Трансмиссия</p>
-                <p>Электрооборудование</p>
-                <p>устройства вспомогательные</p>
-                <p>Двигатель</p>
-               
-              </div>
-            </a>
+                 {% for part in parts %}
+          <div class="div_for_aside_blocks">
+            <div class="aside_info_blocks">
+              <a href="{% url 'details' part.list_slug %}" class="aa">
+                <img src="{{part.image.url}}" alt="">
+                <p class="p1p">{{part.list_name}}</p>
+                <div class="selector_menu">
+                  {% for category in part.parent.all %}
+                <p>{{category.category_name}}</p>
+                {% endfor %}
+
+                </div>
+              </a>
+            </div>
           </div>
-          <div class="aside_info_blocks">
-            <a href="./Catalog_item_page.html" class="aa">
-              <img src="{% static 'catalog_img/3.jpg' %}" alt="#">
-              <p class="p1p"> lorem</p>
-              <div class="selector_menu">
-                <p>Кузовные детали</p>
-                <p>Рулевое управление</p>
-                <p>Тормазная система</p>
-                <p>Трансмиссия</p>
-                <p>Электрооборудование</p>
-                <p>устройства вспомогательные</p>
-                <p>Двигатель</p>
-               
-              </div>
-            </a>
-          </div>
-          <div class="aside_info_blocks">
-            <a href="./Catalog_item_page.html" class="aa">
-              <img src="{% static 'catalog_img/3.jpg' %}" alt="#">
-              <p class="p1p">lorem</p>
-              <div class="selector_menu">
-                <p>Кузовные детали</p>
-                <p>Рулевое управление</p>
-                <p>Тормазная система</p>
-                <p>Трансмиссия</p>
-                <p>Электрооборудование</p>
-                <p>устройства вспомогательные</p>
-                <p>Двигатель</p>
-               
-              </div>
-            </a>
-          </div>
+          {% endfor %}
         </div>
 
 
@@ -233,25 +204,18 @@
             <div class="all_cash">
                 <div class="div_for_info_in_bottom">
                     <span>Итого</span> <span>{{request.session.cart|length}}:</span> <span>{% cart_total_amount %}</span>
+                  <form method="POST" class="post-form">{% csrf_token %}
+                    {{form.as_p}}
+                    <button type="submit" class="save btn btn-default">Save</button>
+                  </form>
                 </div>
-                        <form id="click_form" action="https://my.click.uz/services/pay" method="get" target="_blank">
-        <input type="hidden" name="amount" value="{% cart_total_amount %}" />
-        <input type="hidden" name="merchant_id" value="46"/>
-        <input type="hidden" name="merchant_user_id" value="4"/>
-        <input type="hidden" name="service_id" value="36"/>
-        <input type="hidden" name="transaction_param" value="user23151"/>
-        <input type="hidden" name="return_url" value="сайт поставщика"/>
-        <input type="hidden" name="card_type" value="uzcard"/>
-        <button type="submit" class="click_logo"><i></i>Оплатить через CLICK</button>
-        </form>
             </div>
-          </div>
-        </div>
-        <div class="three_block_grid_and_info">
-        </div>
       </div>
     </div>
-
+    <div class="three_block_grid_and_info">
+        </div>
+    </div>
+    </div>
     <footer>
       <div class="footer_container">
         <div class="four_block_in_footer first_footer_block">
@@ -336,6 +300,6 @@
     </div>
     <div class="blur_bg"></div>
     <div class="blur_bg1"></div>
-    <script src="./js/index.js"></script>
+    <script src="{% static './js/index.js' %}"></script>
   </body>
 </html>

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import PartList, Category, Product, Mark
+from .models import PartList, Category, Product, Mark, Order
 
 # Register your models here.
 
@@ -33,3 +33,5 @@ class PartAdmin(admin.ModelAdmin):
     search_fields = ('category', 'article', 'article_second', 'name', 'price')
     ordering = ('name', 'price')
     prepopulated_fields = {'part_slug': ('name',)}
+
+admin.site.register(Order)
