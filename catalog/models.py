@@ -78,7 +78,7 @@ class Order(models.Model):
     )
 
     def __str__(self):
-        return f'{self.parts[10:]} {self.total}'
+        return f'id:{self.id} Пользователь:{self.user.username} всего:{self.total}'
 
     class Meta:
         db_table = 'Заказ'

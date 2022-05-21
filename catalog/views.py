@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import PartList, Category, Product, Mark
+from .models import PartList, Category, Product, Mark, Order
 from django.views.generic import DetailView, ListView, TemplateView
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponse
@@ -7,6 +7,8 @@ from cart.cart import Cart
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from .forms import OrderForm
+from .tasks import total_price, get_parts
+from .bot import send_message
 
 # Create your views here.
 
@@ -89,8 +91,21 @@ class DetailSearchView(ListView):
         )
 
 
+@login_required
 def CartPageView(request):
-    form = OrderForm()
+    if request.method == "POST":
+        form = OrderForm(request.POST)
+        if form.is_valid():
+            order = form.save(commit=False)
+            order.user = request.user
+            order.total = total_price(request)
+            order.parts = get_parts(request)
+            order.save()
+            element = Order.objects.get(id=order.id)
+            send_message(order.id, element.number, order.user.username, get_parts(request))
+            return redirect('cart_clear')
+    else:
+        form = OrderForm()
     parts_panel = PartList.objects.all()
     return render(request, "basket.html", {'form': form, 'parts': parts_panel})
 
