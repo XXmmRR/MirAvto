@@ -87,7 +87,7 @@ class DetailSearchView(ListView):
         return Product.objects.filter(
             Q(article__icontains=query) |
             Q(article_second__icontains=query) |
-            Q(part_name__icontains=query)
+            Q(name__icontains=query)
         )
 
 
@@ -95,15 +95,16 @@ class DetailSearchView(ListView):
 def CartPageView(request):
     if request.method == "POST":
         form = OrderForm(request.POST)
-        if form.is_valid():
-            order = form.save(commit=False)
-            order.user = request.user
-            order.total = total_price(request)
-            order.parts = get_parts(request)
-            order.save()
-            element = Order.objects.get(id=order.id)
-            send_message(order.id, element.number, order.user.username, get_parts(request))
-            return redirect('cart_clear')
+        if request.session['cart'].get('name'):
+            if form.is_valid():
+                order = form.save(commit=False)
+                order.user = request.user
+                order.total = total_price(request)
+                order.parts = get_parts(request)
+                order.save()
+                element = Order.objects.get(id=order.id)
+                send_message(order.id, order.address, order.orient, element.number, order.user.username, get_parts(request))
+                return redirect('cart_clear')
     else:
         form = OrderForm()
     parts_panel = PartList.objects.all()
