@@ -14,16 +14,16 @@
     <img src="{% static 'image/bg.jpg' %}" alt="#" class="z_index_img" />
     <div class="search_block">
       <h2>Поиск по каталогу</h2>
-      <form class="mobile_search">
-        <input type="text">
-     <button type="submit"> Найти</button>
-     </form>
+      <form class="mobile_search" action="{% url 'search_details' %}" method="get">
+        <input type="text" name="g">
+     <button type="button"> Найти</button>
+      </form>
     </div>
     <div class="bg_block"></div>
     <nav>
       <div class="container_nav">
         <div class="burg_menu">
-          <img src="./icon/134216_menu_lines_hamburger_icon.png" alt="" />
+          <img src="{% static 'icon/134216_menu_lines_hamburger_icon.png' %}" alt="" />
         </div>
         <div class="two_block_in_cont_nav first">
            <div class="six_block_on_top"><a href="{% url 'home' %}">Главная</a></div>
@@ -300,7 +300,7 @@
         <button><a href="#">Регистрация</a></button>
         <button class="retail">Забыли пароль?</button>
       </div>
-      <img src="./icon/211651_close_round_icon.png" alt="#" class="close" />
+      <img src="{% static 'icon/211651_close_round_icon.png' %}" alt="#" class="close" />
     </div>
     <div class="one_div">
       <h2>Забыли пароль?</h2>
@@ -315,7 +315,7 @@
         </div>
       </div>
 
-      <img src="./icon/211651_close_round_icon.png" alt="#" class="close1" />
+      <img src="{% static 'icon/211651_close_round_icon.png' %}" alt="#" class="close1" />
     </div>
     <div class="blur_bg"></div>
     <div class="blur_bg1"></div>
