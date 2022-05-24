@@ -45,35 +45,9 @@ burg_menu.onclick = () =>{
 second_header_cont.onclick = () =>{
     first_flex_block_in_container.classList.toggle('first_flex_active')
 }
-close0.onclick = () =>{
-log_in_div.classList.toggle('active')
-blur_bg.classList.toggle('blur_bg_act')
-}
-close11.onclick = () =>{
-    one_log.classList.toggle('active11')
-    blur_bg12.classList.toggle('blur_bg_act12')
-}
 
-close1.onclick = () =>{
-    one_div.classList.toggle('active1')
-    blur_bg1.classList.toggle('blur_bg_act1')
-    }
-log1.onclick = () =>{
-    log_in_div.classList.toggle('active')
-    blur_bg.classList.toggle('blur_bg_act')
-    }
-retail.onclick = () =>{
-        one_div.classList.toggle('active1')
-        blur_bg1.classList.toggle('blur_bg_act1')
-    }
-blur_bg.onclick = () =>{
-        log_in_div.classList.toggle('active')
-        blur_bg.classList.toggle('blur_bg_act')
-    }
-blur_bg1.onclick = () =>{
-        one_div.classList.toggle('active1')
-        blur_bg1.classList.toggle('blur_bg_act1')
-    }
+
+
 
 
 

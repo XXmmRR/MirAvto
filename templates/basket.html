@@ -14,8 +14,10 @@
     <img src="{% static 'image/bg.jpg' %}" alt="#" class="z_index_img" />
     <div class="search_block">
       <h2>Поиск по каталогу</h2>
-      <input type="text" />
-      <button>Найти</button>
+      <form class="mobile_search">
+        <input type="text">
+     <button type="submit"> Найти</button>
+     </form>
     </div>
     <div class="bg_block"></div>
     <nav>
@@ -53,22 +55,22 @@
       </div>
       <div class="two_block_in_cont_nav first1">
         <div class="six_block_on_top">
-          <a href="./HomePage.html">Главная</a>
+          <a href="{% url 'home' %}">Главная</a>
         </div>
         <div class="six_block_on_top">
-          <a href="./Catalog.html">Каталог автозапчастей</a>
+          <a href="{% url 'catalog' %}">Каталог автозапчастей</a>
         </div>
         <div class="six_block_on_top">
-          <a href="./deliveryPage.html">Доставка</a>
+          <a href="{% url 'delivery' %}">Доставка</a>
         </div>
         <div class="six_block_on_top">
-          <a href="./PayPage.html">Оплата</a>
+          <a href="{% url 'payment' %}">Оплата</a>
         </div>
         <div class="six_block_on_top">
-          <a href="./CallBackPage.html">Обратная связь</a>
+          <a href="{% url 'feedback' %}">Обратная связь</a>
         </div>
         <div class="six_block_on_top first_hov_block">
-          <a href="./Contact.html">Контакты</a>
+          <a href="{% url 'contact' %}">Контакты</a>
         </div>
       </div>
     </nav>
@@ -77,20 +79,17 @@
         <div class="three_block_in_header_cont first_block_in_header_cont">
           <div>
             <img
-              src="{% static 'image/new_logo-removebg-preview.png' %}"
+              src="{% static 'image/remove_bg.png' %}"
               alt=""
             />
           </div>
-          <div>
-            <h2>Продажа автозапчастей</h2>
-            <p>с хххх года</p>
-          </div>
+          
         </div>
         <div class="three_block_in_header_cont second_block_in_header_cont">
           <p class="catalog_search">Поиск по каталогу</p>
          <div class="flex_div">
             <form class="input-group filter-bar-search flex_div" action="{% url 'search' %}" method="get">
-            <input type="text" name="q">
+            <input type="text" name="g">
             <button type="button">
               <img src="{% static 'icon/211817_search_strong_icon.png' %}" alt="" />
               <p>Найти</p>
@@ -112,7 +111,7 @@
             <div class="img_and_text">
               <img src="{% static 'icon/186387_cart_shopping_icon.png' %}" alt="" />
             </div>
-            <a href="basket.html">
+            <a href="{% url 'basket' %}">
             <div class="img_and_text">
               <div class="cart_blocks">
 
@@ -164,8 +163,8 @@
        
 
         <div class="three_block_grid_and_info">
-          <a href="./HomePage.html">Главная</a> <span>/</span>
-          <a href="./basket.html">Корзина </a>
+          <a href="{% url 'home' %}">Главная</a> <span>/</span>
+          <a href="{% url 'basket' %}">Корзина </a>
           <h2>Корзина</h2>
         </div>
         <div class="three_block_grid_and_info">
@@ -196,15 +195,33 @@
                   <a href="{% url 'item_clear' value.product_id %}"><p>Удалить</p></a>
                 </div></div>
               <div class="fourty_procent"><a href="#">{{value.name}}.</a></div>
-              <div class="thirdty_procent"><span>{{value.price}}</span> <span>{{ value.price|multiply:value.quantity }} {{value.quantity}}</span></div>
+              <div class="thirdty_procent"><span>{{value.price}}</span> <span>{{value.quantity}}:{{ value.price|multiply:value.quantity }}</span></div>
             </div>
+           
             {% endfor %}
+            <div class="cart_div">
+              <div class="div_item">
+                <div class="width20">
+                  <img src="./icon/no_camera.png" alt="">
+                </div>
+                <div class="width80">
+                  <p>Артикул : <span>43654654654</span></p>
+                  <p>Ориг.артикул : <span>43654654654</span></p>
+                  <p class="color">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis exercitationem cupiditate reprehenderit?</p>
+                  <p>Цена : <span>4333</span></p>
+                  <p>Сумма : <span>3222</span></p>
+                  <div class="del_block">
+                    <p>Удалить</p>
+                </div>
+                </div>
+              </div>
+            </div>  
           </div>
             </div>
             <div class="all_cash">
-                <div class="div_for_info_in_bottom">
+                <div class="div_for_info_in_bottom ">
                     <span>Итого</span> <span>{{request.session.cart|length}}:</span> <span>{% cart_total_amount %}</span>
-                  <form method="POST" class="post-form">{% csrf_token %}
+                  <form method="POST" class="post-form ">{% csrf_token %}
                     {{form.as_p}}
                     <button type="submit" class="save btn btn-default">Save</button>
                   </form>
@@ -219,13 +236,13 @@
     <footer>
       <div class="footer_container">
         <div class="four_block_in_footer first_footer_block">
-          <a href="./HomePage.html">
+          <a href="{% url 'home' %}">
             <img
-              src="{% static 'image/new_logo-removebg-preview.png' %}"
+              src="{% static 'image/remove_bg.png' %}"
               alt=""
             /></a>
 
-          <h2>продажа автозапчастей</h2>
+          
         </div>
         <div class="four_block_in_footer second_footer_block">
           <p class="phones">Телефоны</p>

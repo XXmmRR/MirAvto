@@ -15,10 +15,10 @@
     <img src="{% static 'image/bg.jpg' %}" alt="#" class="z_index_img" />
     <div class="search_block">
       <h2>Поиск по каталогу</h2>
-      <form>
-      <input type="text">
-      <button type="submit"> Найти</button>
-      </form>
+      <form class="mobile_search">
+        <input type="text">
+     <button type="submit"> Найти</button>
+     </form>
     </div>
     <div class="bg_block"></div>
     <nav>
@@ -32,11 +32,12 @@
           <div class="six_block_on_top "><a href="{% url 'delivery' %}">Доставка</a></div>
           <div class="six_block_on_top first_hov_block"><a href="{% url 'pay_page' %}">Оплата</a></div>
           <div class="six_block_on_top"><a href="{% url 'feedback' %}">Обратная связь</a></div>
-          <div class="six_block_on_top"><a href="{% url 'contact' %}">Контакты</a></div>
+          <div class="six_block_on_top"><a href="{% url 'contact' %}" class="link_display1">Контакты</a>
+            <a href="{% url 'basket' %}" class="link_display">Корзина</a></div>
         </div>
           <div class="two_block_in_cont_nav second">
                     {% if user.is_authenticated %}
-                    <p style="color:#e7bc5a">Добро пожаловать {{user.username}}</p>
+                    <p>Добро пожаловать {{user.username}}</p>
                     {% else %}
             <div class="two_block_log_and_reg log1">
               <img src="{% static 'icon/3671785_key_icon.png' %}" alt="" />
@@ -78,14 +79,11 @@
         <div class="three_block_in_header_cont first_block_in_header_cont">
           <div>
             <img
-            src="{% static 'image/new_logo-removebg-preview.png' %}"
+            src="{% static 'image/remove_bg.png' %}"
             alt=""
           />
           </div>
-          <div>
-            <h2>Продажа автозапчастей</h2>
-            <p>с хххх года</p>
-          </div>
+         
         </div>
         <div class="three_block_in_header_cont second_block_in_header_cont">
           <p class="catalog_search">Поиск по каталогу</p>
@@ -159,9 +157,9 @@
           <ol>
               <li><p>Наличными - это вариант, который предпочитает большинство покупателей. Вы оплачиваете товар в момент его получения на нашем складе.</p>
             <img src="{% static 'image/click.png' %}" alt="#"></li>
-              <li><p>Банковской картой на кассе магазина VISA или MasterCard. (Временно не работает!)</p>
+              <li><p>Банковской картой на кассе магазина VISA или MasterCard. </p>
             <img src="{% static 'image/visa.jpg' %}" alt="#"></li>
-              <li><p>Оплата осуществляется на счет QIWI-кошелька. Зачисление моментально.</p>
+              <li><p>Оплата осуществляется на Карты HUMO или UZCARD</p>
             <img src="{% static 'image/uzcard_and_humo.png' %}" alt="#" class="uzcard"></li>
               <li><p>Наличными курьеру при заказе товара с доставкой.</p>
             <img src="{% static 'image/cashondelievery.jpg' %}" alt="#"></li>
@@ -178,10 +176,10 @@
         <div class="footer_container">
           <div class="four_block_in_footer first_footer_block">
             <a href="{% url 'home' %}"> <img
-              src="{% static 'image/new_logo-removebg-preview.png' %}"
+              src="{% static 'image/remove_bg.png' %}"
               alt=""
             /></a>
-            <h2>продажа автозапчастей</h2>
+            
         
           </div>
           <div class="four_block_in_footer second_footer_block">
@@ -233,6 +231,6 @@
       </div>
       <div class="blur_bg"></div>
       <div class="blur_bg1"></div>
-    <script src="./js/index.js"></script>
+      <script src="{% static 'js/index.js' %}"></script>
 </body>
 </html>

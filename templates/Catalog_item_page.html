@@ -15,8 +15,10 @@
     <img src="{% static 'image/bg.jpg' %}" alt="#" class="z_index_img" />
     <div class="search_block">
       <h2>Поиск по каталогу</h2>
-      <input type="text">
-      <button> Найти</button>
+      <form class="mobile_search">
+        <input type="text">
+     <button type="submit"> Найти</button>
+     </form>
     </div>
     <div class="bg_block"></div>
     <nav>
@@ -30,7 +32,8 @@
           <div class="six_block_on_top"><a href="{% url 'delivery' %}">Доставка</a></div>
           <div class="six_block_on_top"><a href="{% url 'pay_page' %}">Оплата</a></div>
           <div class="six_block_on_top"><a href="{% url 'feedback' %}">Обратная связь</a></div>
-          <div class="six_block_on_top"><a href="{% url 'contact' %}">Контакты</a></div>
+          <div class="six_block_on_top"><a href="{% url 'contact' %}" class="link_display1">Контакты</a>
+            <a href="{% url 'basket' %}" class="link_display">Корзина</a></div>
         </div>
 <div class="two_block_in_cont_nav second">
                     {% if user.is_authenticated %}
@@ -75,14 +78,11 @@
         <div class="three_block_in_header_cont first_block_in_header_cont">
           <div>
             <img
-            src="{% static 'image/new_logo-removebg-preview.png' %}"
+            src="{% static 'image/remove_bg.png' %}"
             alt=""
           />
           </div>
-          <div>
-            <h2>Продажа автозапчастей</h2>
-            <p>с хххх года</p>
-          </div>
+        
         </div>
         <div class="three_block_in_header_cont second_block_in_header_cont">
           <p class="catalog_search">Поиск по каталогу</p>
@@ -110,7 +110,7 @@
             <div class="img_and_text">
               <img src="{% static 'icon/186387_cart_shopping_icon.png' %}" alt="" />
             </div>
-              <a href="basket.html">
+              <a href="{% url 'basket' %}">
             <div class="img_and_text">
               <div class="cart_blocks">
 
@@ -174,10 +174,10 @@
         <div class="footer_container">
           <div class="four_block_in_footer first_footer_block">
             <a href="{% url 'home' %}"> <img
-              src="{% static 'image/new_logo-removebg-preview.png' %}"
+              src="{% static 'image/remove_bg.png' %}"
               alt=""
             /></a>
-            <h2>продажа автозапчастей</h2>
+            
        
           </div>
           <div class="four_block_in_footer second_footer_block">
@@ -229,7 +229,7 @@
       </div>
       <div class="blur_bg"></div>
       <div class="blur_bg1"></div>
-    <script src="./js/index.js"></script>
+      <script src="{% static 'js/index.js' %}"></script>
    
 </body>
 </html>

@@ -95,7 +95,7 @@ class DetailSearchView(ListView):
 def CartPageView(request):
     if request.method == "POST":
         form = OrderForm(request.POST)
-        if request.session['cart'].get('name'):
+        if request.session.get('cart'):
             if form.is_valid():
                 order = form.save(commit=False)
                 order.user = request.user
@@ -103,7 +103,8 @@ def CartPageView(request):
                 order.parts = get_parts(request)
                 order.save()
                 element = Order.objects.get(id=order.id)
-                send_message(order.id, order.address, order.orient, element.number, order.user.username, get_parts(request))
+                send_message(order.id, order.address, order.orient, element.number, order.user.username, get_parts(request),
+                             order.total)
                 return redirect('cart_clear')
     else:
         form = OrderForm()
