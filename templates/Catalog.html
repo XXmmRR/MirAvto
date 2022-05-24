@@ -1,4 +1,6 @@
-{% load static %} {% load cart_tag %} {% load myfilters %}
+{% load static %}
+{% load cart_tag %}
+{% load myfilters %}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -13,9 +15,9 @@
     <img src="{% static 'image/bg.jpg' %}" alt="#" class="z_index_img" />
     <div class="search_block">
       <h2>Поиск по каталогу</h2>
-      <form class="mobile_search">
-        <input type="text">
-     <button type="submit"> Найти</button>
+      <form class="mobile_search" action="{% url 'search_details' %}" method="get">
+        <input type="text" name="g">
+     <button type="button"> Найти</button>
      </form>
     </div>
     <div class="bg_block"></div>

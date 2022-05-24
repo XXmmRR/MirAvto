@@ -200,21 +200,23 @@
            
             {% endfor %}
             <div class="cart_div">
+              {% for key,value in request.session.cart.items %}
               <div class="div_item">
                 <div class="width20">
-                  <img src="./icon/no_camera.png" alt="">
+                  <img src="{{value.image}}" alt="">
                 </div>
                 <div class="width80">
-                  <p>Артикул : <span>43654654654</span></p>
-                  <p>Ориг.артикул : <span>43654654654</span></p>
-                  <p class="color">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis exercitationem cupiditate reprehenderit?</p>
-                  <p>Цена : <span>4333</span></p>
-                  <p>Сумма : <span>3222</span></p>
+                  <p>Артикул : <span>{{value.article}}</span></p>
+                  <p>Ориг.артикул : <span>{{value.article_second}}</span></p>
+                  <p class="color">{{value.name}}</p>
+                  <p>Цена : <span>{{value.price}}</span></p>
+                  <p>Сумма : <span>{{value.quantity}}:{{ value.price|multiply:value.quantity }}</span></p>
                   <div class="del_block">
-                    <p>Удалить</p>
+                  <a href="{% url 'item_clear' value.product_id %}"><p>Удалить</p></a>
                 </div>
                 </div>
               </div>
+              {% endfor %}
             </div>  
           </div>
             </div>

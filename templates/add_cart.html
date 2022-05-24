@@ -227,65 +227,22 @@
             </div>
             {% endfor %}
             <div class="cart_div">
+             {% for part in parts_main %}
               <div class="div_item">
                 <div class="width20">
-                  <img src="{% static 'icon/no_camera.png' %}" alt="" />
+                  <img src="{{part.image.url}}" alt="" />
                 </div>
                 <div class="width80">
-                  <p>Артикул : <span>43654654654</span></p>
-                  <p>Ориг.артикул : <span>43654654654</span></p>
+                  <p>Артикул : <span>{{part.article}}</span></p>
+                  <p>Ориг.артикул : <span>{{part.article_second}}</span></p>
                   <p class="color">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Reiciendis exercitationem cupiditate reprehenderit?
+                    <a href="{% url 'cart_add' part.id %}">{{part.name}}</a>
                   </p>
                   <p>наличие : <span>+</span></p>
-                  <p>Цена : <span>4333</span></p>
+                  <p>Цена : <span>{{part.price}}</span></p>
                 </div>
               </div>
-              <div class="div_item">
-                <div class="width20">
-                  <img src="{% static 'icon/no_camera.png' %}" alt="" />
-                </div>
-                <div class="width80">
-                  <p>Артикул : <span>43654654654</span></p>
-                  <p>Ориг.артикул : <span>43654654654</span></p>
-                  <p class="color">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Reiciendis exercitationem cupiditate reprehenderit?
-                  </p>
-                  <p>наличие : <span>+</span></p>
-                  <p>Цена : <span>4333</span></p>
-                </div>
-              </div>
-              <div class="div_item">
-                <div class="width20">
-                  <img src="{% static 'icon/no_camera.png' %}" alt="" />
-                </div>
-                <div class="width80">
-                  <p>Артикул : <span>43654654654</span></p>
-                  <p>Ориг.артикул : <span>43654654654</span></p>
-                  <p class="color">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Reiciendis exercitationem cupiditate reprehenderit?
-                  </p>
-                  <p>наличие : <span>+</span></p>
-                  <p>Цена : <span>4333</span></p>
-                </div>
-              </div>
-              <div class="div_item">
-                <div class="width20">
-                  <img src="{% static 'icon/no_camera.png' %}" alt="" />
-                </div>
-                <div class="width80">
-                  <p>Артикул : <span>43654654654</span></p>
-                  <p>Ориг.артикул : <span>43654654654</span></p>
-                  <p class="color">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Reiciendis exercitationem cupiditate reprehenderit?
-                  </p>
-                  <p>наличие : <span>+</span></p>
-                  <p>Цена : <span>4333</span></p>
-                </div>
+              {% endfor %}
               </div>
             </div>
           </div>
