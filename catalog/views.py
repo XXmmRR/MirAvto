@@ -66,6 +66,8 @@ def PartsListView(request, slug, category):
 class PartSearchListView(ListView):
     model = PartList
     context_object_name = 'parts'
+    parts_panel = PartList.objects.all()
+    extra_context = {'parts': parts_panel}
     template_name = 'Catalog.html'
 
     def get_queryset(self):
