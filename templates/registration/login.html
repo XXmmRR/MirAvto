@@ -92,6 +92,9 @@
         <div class="six_block_on_top first_hov_block">
           <a href="{% url 'contact' %}">Контакты</a>
         </div>
+        <div class="six_block_on_top ">
+          <a href="{% url 'basket' %}">корзина</a>
+        </div>
       </div>
     </nav>
     <header>
@@ -150,9 +153,7 @@
                   >
                 </div>
                 <div class="cart_blocks">
-                  <span>на</span>
-                  <span class="quantity two">{% cart_total_amount %}</span>
-                  <span>Р</span>
+                
                 </div>
               </div>
             </a>
@@ -223,7 +224,7 @@
           <p class="phones">Телефоны</p>
           <p>(999)xxx-xx-xx</p>
           <p>(999)xxx-xx-xx</p>
-          <button class="call_me">Перезвоните мне</button>
+          
         </div>
         <div class="four_block_in_footer third_footer_block">
           <p class="contacts">Контакты</p>

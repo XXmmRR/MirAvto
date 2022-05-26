@@ -142,8 +142,7 @@
                 <span>товаров</span> <span class="quantity one">{{request.session.cart|length}}</span>
               </div>
               <div class="cart_blocks">
-                <span>на</span> <span class="quantity two">{% cart_total_amount %} </span>
-                <span>Р</span>
+              
               </div>
             </div>
         </a>
@@ -259,31 +258,39 @@
         <div class="eight_block_from_main">
           <h2>Автозапчасти для иномарок</h2>
         </div>
-        <div class="eight_block_from_main info_blocks">
-          <div class="two_info_block">
-            <img src="{% static 'image/vazmanuf.jpg' %}" alt="#" />
-          </div>
-          <div class="two_info_block">
-            <p>
-              В нашем сервисе имеется тех.поддержка и Консультация 24/7, так же можете обращаться по номеру **********
-            </p>
-            <p>Наши высококвалифицированные консультанты:</p>
-            <ul>
-              
-            
-              <li>расскажут про имеющиеся способы доставки приобретенных запчастей</li>
-              <li>помогут выбрать самый удобный для вас способ оплаты</li>
-              <li>помогут Вам с подбором оригинальных и не оригинальных автозапчастей</li>
-              <li>посодействуют в быстром и правильном оформлении заказа автозапчастей</li>
-            </ul>
-          </div>
-        </div>
+     
         <div class="eight_block_from_main">
           <h2>Гарантии предоставления услуг</h2>
           <p>
             Мы гарантируем высокое качество имеющихся в нашем каталоге оригинальных и неоригинальных автозапчастей, так как тщательным образом подходим к отбору поставщиков и производителей всего ассортиментного ряда автомобильных запчастей и сопутствующих материалов.
           </p>
         </div>
+        <!-- <div class="eight_block_from_main eight_block_from_main1 ">
+          {% for mark in marks %}
+          <a href="/catalog/search/?q={{mark.name}}">
+            <div class="four_stamp_block">
+              <img src="{{mark.image.url}}" alt="#" class="kia_logo"/>
+              <p>{{mark.name}}</p>
+            </div>
+          </a>
+          {% endfor %}
+        </div> -->
+        <h3>Марки машин</h3>
+        <div class="three_block_grid_and_info grid_wrap grid_wrap_display wrap1 ">
+          
+          {% for mark in marks %}
+          <a href="/catalog/search/?q={{mark.name}}">
+            <div class="grid_item grid1">
+              <img src="{{mark.image.url}}" alt="#" class="kia_logo"/>
+              <p>{{mark.name}}</p>
+            </div>
+          </a>
+          {% endfor %}
+            </div>
+            <hr>
+            <br>
+            <h3>Каталог авто-запчастей</h3>
+            <br>
         <div class="three_block_grid_and_info grid_wrap grid_wrap_display">
           {% for part in parts %}
           <a href="{% url 'details' part.list_slug %}">
@@ -312,7 +319,7 @@
           <p class="phones">Телефоны</p>
           <p>(999)xxx-xx-xx</p>
           <p>(999)xxx-xx-xx</p>
-          <button class="call_me">Перезвоните мне</button>
+          
         </div>
         <div class="four_block_in_footer third_footer_block">
           <p class="contacts">Контакты</p>

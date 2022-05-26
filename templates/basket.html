@@ -118,8 +118,7 @@
                 <span>товаров</span> <span class="quantity one">{{request.session.cart|length}}</span>
               </div>
               <div class="cart_blocks">
-                <span>на</span> <span class="quantity two">{% cart_total_amount %}</span>
-                <span>Р</span>
+               
               </div>
             </div>
         </a>
@@ -194,8 +193,14 @@
                 <div class="del_block">
                   <a href="{% url 'item_clear' value.product_id %}"><p>Удалить</p></a>
                 </div></div>
-              <div class="fourty_procent"><a href="#">{{value.name}}.</a></div>
-              <div class="thirdty_procent"><span>{{value.price}}</span> <span>{{value.quantity}}:{{ value.price|multiply:value.quantity }}</span></div>
+              <div class="fourty_procent "><a href="#">{{value.name}}.</a></div>
+              <div class="thirdty_procent "><span>{{value.price}}</span> <span>{{ value.price|multiply:value.quantity }}</span>
+              <div class="wrap_quantity">
+                <p>количество: </p>
+                <p class="quantity_item">{{value.quantity}}</p>
+              </div>
+               
+              </div>
             </div>
            
             {% endfor %}
@@ -210,7 +215,11 @@
                   <p>Ориг.артикул : <span>{{value.article_second}}</span></p>
                   <p class="color">{{value.name}}</p>
                   <p>Цена : <span>{{value.price}}</span></p>
-                  <p>Сумма : <span>{{value.quantity}}:{{ value.price|multiply:value.quantity }}</span></p>
+                  <p>Сумма : <span>{{ value.price|multiply:value.quantity }}</span></p>
+                  <div class="wrap_quantity1">
+                    <p>количество: </p>
+                    <p class="quantity_item1">{{value.quantity}}</p>
+                  </div>
                   <div class="del_block">
                   <a href="{% url 'item_clear' value.product_id %}"><p>Удалить</p></a>
                 </div>
@@ -250,7 +259,7 @@
           <p class="phones">Телефоны</p>
           <p>(999)xxx-xx-xx</p>
           <p>(999)xxx-xx-xx</p>
-          <button class="call_me">Перезвоните мне</button>
+          
         </div>
         <div class="four_block_in_footer third_footer_block">
           <p class="contacts">Контакты</p>

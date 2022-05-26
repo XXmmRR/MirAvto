@@ -91,6 +91,9 @@
         <div class="six_block_on_top first_hov_block">
           <a href="{% url 'contact' %}">Контакты</a>
         </div>
+        <div class="six_block_on_top ">
+          <a href="{% url 'basket' %}">корзина</a>
+        </div>
       </div>
     </nav>
     <header>
@@ -149,9 +152,7 @@
                   >
                 </div>
                 <div class="cart_blocks">
-                  <span>на</span>
-                  <span class="quantity two">{% cart_total_amount %}</span>
-                  <span>Р</span>
+                  
                 </div>
               </div>
             </a>
@@ -185,7 +186,7 @@
       >
         <div class="box_block"></div>
 
-        <div class="three_block_grid_and_info">
+        <div class="three_block_grid_and_info rust">
           <a href="{% url 'home' %}">Главная</a> <span>/</span>
           <a href="">Каталог авто-запчастей </a>
           <h2>Каталог авто-запчастей</h2>
@@ -224,7 +225,7 @@
               <div class="fourty_procent">
                 <a href="{% url 'cart_add' part.id %}">{{part.name}}</a>
               </div>
-              <div class="thirdty_procent">
+              <div class="first_procent">
                 {% if part.part_exist %}<span>+</span>{% else %}<span>-</span>{% endif %} <span>{{part.price}}</span>
               </div>
             </div>
@@ -250,7 +251,7 @@
             </div>
           </div>
         </div>
-        <div class="three_block_grid_and_info"></div>
+        <div class="three_block_grid_and_info none1"></div>
       </div>
     </div>
 
@@ -269,7 +270,7 @@
           <p class="phones">Телефоны</p>
           <p>(999)xxx-xx-xx</p>
           <p>(999)xxx-xx-xx</p>
-          <button class="call_me">Перезвоните мне</button>
+          
         </div>
         <div class="four_block_in_footer third_footer_block">
           <p class="contacts">Контакты</p>

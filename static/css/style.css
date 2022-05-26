@@ -10,7 +10,60 @@ body {
     height: 100vh;
     
 }
+hr{
+    display: none;
+}
+h3{
+    display: none;
+}
+.eight_block_from_main1 {
+    display: none 
+}
+.second_block_top .div_in_massive .thirdty_procent{
+    position: relative;
+}
+.wrap_quantity{
 
+position: absolute;
+width: 100%;
+bottom: 10px;
+left: 0;
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+.wrap_quantity1{
+
+position: absolute;
+width: 100%;
+bottom: -15px;
+left: -20px;
+display: flex;
+align-items: center;
+justify-content: center;
+
+}
+.wrap_quantity p{
+font-size: 20px !important;
+}
+.wrap_quantity1 p{
+font-size: 20px !important;
+}
+.quantity_item{
+    font-size: 30px;
+    margin-left: 10px;
+
+    width:20px;
+    font-weight: 600;
+}
+.quantity_item1{
+    font-size: 30px ;
+    margin-left: 10px ;
+
+    width:20px ;
+    font-weight: 600 ;
+}
 .link_display{
 display: none;
 }
@@ -22,7 +75,7 @@ display: none;
     height:500px;
 }
 .all_cash {
-    width: 100%;
+    width: 100% !important;
     height: 50px;
     display: flex;
     justify-content: end;
@@ -41,18 +94,27 @@ justify-content: center;
 }
 .post-form{
 position: absolute !important;
-width: 70%;
+width: auto;
 display: flex;
-justify-content: space-between;
+
 transform: translate(-50%, -50%);
 bottom: -100px;
-left: -160%;
+left: -70%;
 
 align-items: flex-end;
+padding: 0 60px;
+}
+.post-form input{
+height: 30px ;
+
+border-radius: 5px;
 }
 .btn-default{
-width: 100px;
-height: 20px;
+    border-radius: 5px;
+    border: black 1px solid;
+width: 150px !important;
+height: 30px;
+background-color: #ffd576;
 
 }
 .p1p {
@@ -70,15 +132,17 @@ height: 20px;
     border-bottom: 2px solid gray;
     background-color: #fff;
     padding: 20px 0;
-    transition: .3s
+    transition: .3s;
+    margin-bottom: 10px !important;
 }
 
 .div_item .width20 img {
     width: 100px;
-    height: 100px
+    height: 80px
 }
 
 .div_item .width80 {
+    position: relative;
     line-height: 20px;
     width: 80%;
     margin-left: 10px
@@ -252,7 +316,8 @@ nav .container_nav .second .two_block_log_and_reg:hover {
 
 header {
     width: 100%;
-    background-color: rgba(103, 103, 103, .367);
+    /* background-color: rgba(0, 0, 0, 0.351); */
+    background-image: linear-gradient(to top right, rgb(32, 32, 32), teal);
     border-bottom: 4px solid #fff;
     margin-top: 50px
 }
@@ -398,12 +463,13 @@ header .header_container .third_block_in_header_cont .second_header_cont .displa
 }
 
 header .header_container .third_block_in_header_cont .second_header_cont a .img_and_text .cart_blocks {
-    color: #b2e3ff
+    color: #b2e3ff;
+    font-size: 15px;
 }
 
 header .header_container .third_block_in_header_cont .second_header_cont a .img_and_text .quantity {
     color: #fff;
-    font-size: 15px
+    font-size: 17px
 }
 
 .container {
@@ -444,13 +510,13 @@ margin-top: 30px;
     justify-content: start;
     color: #000;
     text-decoration: none;
-    height: 100%
+    height: 100%;
 }
 
 .container .first_flex_block_in_container .div_for_aside_blocks .aside_info_blocks .aa img {
     margin-right: 10px;
-    width: 80px;
-    height: 60%
+    width: 100px;
+    height: 80%
 }
 
 .container .first_flex_block_in_container .div_for_aside_blocks .aside_info_blocks .aa .selector_menu {
@@ -712,6 +778,10 @@ margin-top: 30px;
     width: 23%;
     height: 230px
 }
+.container .second_flex_block_in_container .eight_block_from_main1 a {
+    width: 23%;
+    height: 230px
+}
 
 .container .second_flex_block_in_container .eight_block_from_main a .four_stamp_block {
     text-align: center;
@@ -724,13 +794,27 @@ margin-top: 30px;
 .container .second_flex_block_in_container .eight_block_from_main a .four_stamp_block img {
     width: 90%;
     margin: 0 auto;
-    height: 110px
+    height: 100px
 }
-.container .second_flex_block_in_container .eight_block_from_main a .four_stamp_block .kia_logo {
+
+
+.container .second_flex_block_in_container .eight_block_from_main1 a .four_stamp_block {
+    text-align: center;
+    height: 100%;
+    border: 4px solid #b5b5b5;
+    transition: .3s;
+    padding: 20px
+}
+.container .second_flex_block_in_container .eight_block_from_main1 a .four_stamp_block img {
+    width: 90%;
+    margin: 0 auto;
+    height: 100px
+}
+/* .container .second_flex_block_in_container .eight_block_from_main a .four_stamp_block .kia_logo {
     width: 90%;
     margin: 10px auto;
-    height: 80px
-}
+    height: 110px
+} */
 
 .container .second_flex_block_in_container .eight_block_from_main a .four_stamp_block p {
     font-size: 25px;
@@ -1013,7 +1097,8 @@ margin-top: 30px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center
+    align-items: center;
+    margin-left: -40px;
 }
 .container .second_flex_block_in_container .three_block_grid_and_info .second_block_top .div_in_massive .ten_procent2 .del_block {
     width: 100%;
@@ -1034,7 +1119,8 @@ margin-top: 30px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: center
+    align-items: center;
+    margin-left: 20px;
 }
 
 .container .second_flex_block_in_container .three_block_grid_and_info .second_block_top .div_in_massive .ten_procent3 .del_block {
@@ -1064,15 +1150,27 @@ margin-top: 30px;
 .container .second_flex_block_in_container .three_block_grid_and_info .second_block_top .div_in_massive .thirdty_procent {
     width: 30%;
     display: flex;
-    justify-content: space-evenly
+
+   
+    
+
 }
 
 .container .second_flex_block_in_container .three_block_grid_and_info .second_block_top .div_in_massive span:nth-child(1) {
-    font-size: 15px
+    font-size: 15px;
+    margin-left: 50px;
 }
 
 .container .second_flex_block_in_container .three_block_grid_and_info .second_block_top .div_in_massive span {
-    margin: 20px 0 20px -20px
+    margin: 20px 20px 20px 0px;
+  
+}
+
+
+.first_procent{
+    width: 30%;
+    display: flex;
+    justify-content: space-around;
 }
 
 .container .second_flex_block_in_container .three_block_grid_and_info .second_block_top .div_in_massive .five_block_in_top_block {
@@ -1198,9 +1296,6 @@ margin-top: 30px;
     color: #000
 }
 
-.container .second_flex_block_in_container .grid_wrap a .acti {
-    background-color: red
-}
 
 .container .pay_off_block_act {
     width: 90%;
@@ -1311,12 +1406,9 @@ margin-top: 30px;
     color: #000
 }
 
-.kia_grid a .acti {
-    background-color: red
-}
 
 footer {
-    background-color: rgba(103, 103, 103, .367);
+    background-image: linear-gradient(to top right, rgb(32, 32, 32), teal);
     padding: 30px
 }
 
@@ -1336,7 +1428,7 @@ footer .footer_container .first_footer_block {
 
 footer .footer_container .first_footer_block img {
     width: 250px;
-    height: 90px;
+    height: 80px;
 
 }
 
@@ -1896,7 +1988,7 @@ footer .footer_container .four_block_in_footer {
 }
 
 .imgg {
-    height: 100px;
+    height: 80px;
     width: 100px;
     transform: translate(-10%, -20%)
 }
@@ -1994,6 +2086,11 @@ footer .footer_container .four_block_in_footer {
     .top_and_bottom_block {
         width: 95% !important
     }
+    .all_cash {
+        width: 95% !important;
+        height: 50px;
+       
+    }
 
     .two_block_log_and_reg p {
         font-size: 16px
@@ -2062,8 +2159,8 @@ footer .footer_container .four_block_in_footer {
     }
 
     .aside_info_blocks img {
-        width: 70px !important;
-        height: 60% !important
+        width: 100px !important;
+        height: 70% !important
     }
 
     .container {
@@ -2102,6 +2199,13 @@ footer .footer_container .four_block_in_footer {
 }
 
 @media (max-width:1100px) {
+    .all_cash {
+        width: 95% !important;
+        height: 50px;
+        margin: 0 auto !important;
+        margin-bottom: 100px !important;
+       
+    }
     .second p:nth-child(1) {
         color: #e7bc5a ;
         font-size: 15px !important;
@@ -2115,7 +2219,8 @@ footer .footer_container .four_block_in_footer {
     }
 
     .first_flex_block_in_container .div_for_aside_blocks .aside_info_blocks .aa img {
-        height: 60% !important
+        width: 80px !important;
+        height: 70% !important
     }
 
     .first_flex_block_in_container .div_for_aside_blocks .aside_info_blocks .aa .selector_menu p {
@@ -2234,6 +2339,7 @@ footer .footer_container .four_block_in_footer {
 }
 
 @media (max-width:1024px) {
+  
     .first_flex_block_in_container .div_for_aside_blocks .aside_info_blocks p {
         font-size: 10px !important
     }
@@ -2300,7 +2406,7 @@ footer .footer_container .four_block_in_footer {
     }
 
     .second_header_cont span {
-        font-size: 9px !important
+        font-size: 12px !important
     }
 
     .second_header_cont .quantity {
@@ -2359,6 +2465,19 @@ footer .footer_container .four_block_in_footer {
 }
 
 @media (max-width:990px) {
+    hr{
+        display: block !important;
+       border: 1px solid black;
+       background-color: black;
+    }
+    h3{
+        display: block;
+        text-align: center;
+        font-size: 30px;
+        color: black;
+        font-weight: 200;
+        margin: 20px 0;
+    }
     .second p:nth-child(1) {
         color: #e7bc5a ;
         font-size: 12px !important;
@@ -2382,6 +2501,26 @@ display: none !important;
  .eight_block_from_main {
         display: none !important
     }
+    .grid1{
+        position: relative;
+        
+    }
+    .wrap1 a .grid1 img{
+width: 80% !important;
+height: 50px !important;
+margin-top: 10px !important;
+margin-bottom: 70px !important;
+ }
+ .grid1 p{
+     position: absolute;
+     bottom: 10px;
+     left: 50%;
+     transform: translate(-50%, 0);
+   text-align: center !important;
+   color: black;
+   
+     }
+  
 
     .footer_container {
         width: 80%
@@ -2403,7 +2542,7 @@ display: none !important;
 
     .first_footer_block img {
         width: 200px !important;
-        height: 80px !important
+        height: 70px !important
 
     }
 
@@ -2667,14 +2806,14 @@ display: none !important;
     }
 }
 @media(max-width: 800px){
+    .first_block_top .thirdty_procent div {
+        margin-left: -20px !important;
+    }
 .first_footer_block img{
 width:180px !important;
-    height:70px !important;
+    height:60px !important;
 }
-    .first_block_in_header_cont img{
-    width:120px !important;
-    height:80px !important;
-    }
+
   .second_block_top{
 
     margin: 0 auto;
@@ -2800,7 +2939,7 @@ margin-left: 0 !important;
 }
 .first_block_in_header_cont img{
     width: 180px !important;
-    height: 70px !important;
+    height: 60px !important;
   
 }
 .first_block_in_header_cont div{
@@ -2817,9 +2956,9 @@ margin-left: 0 !important;
 }
 }
 
-@media (max-width:766px) {
+@media (max-width:768px) {
     .all_cash{
-        margin-bottom: 150px;
+        margin-bottom: 200px !important;
     }
     .post-form{
         position: absolute !important;
@@ -2828,7 +2967,7 @@ margin-left: 0 !important;
         flex-direction: column;
         justify-content: space-between;
         transform: translate(-50%, -50%);
-        bottom: -220px;
+        bottom: -280px;
         left: 0;
       
         align-items: flex-end;
@@ -2836,8 +2975,9 @@ margin-left: 0 !important;
         
         }
         .btn-default{
-        width: 165px;
+        width: 168px !important;
         height: 20px;
+        margin-top: 10px;
         
         }
     .container {
@@ -2965,6 +3105,7 @@ margin-left: 0 !important;
         background-color: #fff;
         padding: 20px 0;
         transition: .3s
+        
     }
 
     .div_item .width20 img {
@@ -3026,9 +3167,21 @@ margin-left: 0 !important;
 }
 
 @media (max-width:500px) {
+    .wrap1 a .grid1 img{
+        width: 70% !important;
+        height: 50px !important;
+        margin-top: 10px !important;
+        margin-bottom: 70px !important;
+         }
+    .none1{
+        display: none;
+    }
+
 .first_block_in_header_cont div h2 {
         font-size: 15px !important
     }
+ 
+
     .first_flex_block_in_container .div_for_aside_blocks .aside_info_blocks p {
         font-size: 10px !important
     }
@@ -3076,7 +3229,9 @@ margin-left: 0 !important;
         border-bottom: 2px solid gray;
         background-color: #fff;
         padding: 20px 0;
-        transition: .3s
+        transition: .3s;
+        width: 100% !important;
+        
     }
 
     .div_item .width20 img {
@@ -3189,9 +3344,7 @@ margin-left: 0 !important;
         box-shadow: 0 0 10px rgba(255, 0, 106, .682)
     }
 
-    .second_flex_block_in_container {
-        width: 95% !important
-    }
+   
 
     .div_all {
         display: block;
@@ -3209,6 +3362,7 @@ margin-left: 0 !important;
         grid-gap: 5px !important   ;
     }
   
+    
     .grid_wrap .grid_item img{
     
         width: 60% !important;
@@ -3242,6 +3396,14 @@ margin-left: 0 !important;
 }
 
 @media (max-width:400px) {
+    .wrap1 a .grid1 img{
+        width: 70% !important;
+        height: 50px !important;
+        margin-top: 10px !important;
+        margin-bottom: 70px !important;
+    
+         }
+         
     .grid_wrap1 .grid_item1 {
     
         margin: 0 10px !important;
@@ -3310,16 +3472,17 @@ margin-left: 0 !important;
     }
 }
 
-@media (max-width:400px) and (max-width:400px) {
+@media (max-width:400px) {
+   
     .grid_wrap {
-        height: 1040px !important;
+        height: auto !important;
         overflow: hidden;
         padding: 0 15px !important;
         display: grid !important;
         grid-template-columns: repeat(1, 1fr) !important;
         transition: .3s !important
     }
-
+    
     .grid_wrap1 {
         height: auto !important;
         overflow: hidden;
