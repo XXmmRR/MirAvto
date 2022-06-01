@@ -165,14 +165,14 @@
     </header>
     <div class="container">
       <div class="two_flex_block_in_container first_flex_block_in_container">
-        {% for part in parts %}
+        {% for p in parts %}
         <div class="div_for_aside_blocks">
           <div class="aside_info_blocks">
-            <a href="{% url 'details' part.list_slug %}" class="aa">
-              <img src="{{part.image.url}}" alt="" />
-              <p class="p1p">{{part.list_name}}</p>
+            <a href="{% url 'details' p.list_slug %}" class="aa">
+              <img src="{{p.image.url}}" alt="" />
+              <p class="p1p">{{p.list_name}}</p>
               <div class="selector_menu">
-                {% for category in part.parent.all %}
+                {% for category in p.parent.all %}
                 <p>{{category.category_name}}</p>
                 {% endfor %}
               </div>
@@ -190,12 +190,12 @@
           <h2>Каталог автозапчастей</h2>
         </div>
         <div class="three_block_grid_and_info grid_wrap">
-          {% for part in parts %}
-          <a href="{% url 'details' part.list_slug %}">
+          {% for par in part %}
+          <a href="{% url 'details' par.list_slug %}">
             <div class="grid_item">
-              <img src="{{ part.image.url }}" alt="" />
+              <img src="{{ par.image.url }}" alt="" />
               <div class="bottom_info_block">
-                <p>{{part.list_name}}</p>
+                <p>{{par.list_name}}</p>
               </div>
             </div>
           </a>

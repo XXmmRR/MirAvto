@@ -317,7 +317,7 @@ nav .container_nav .second .two_block_log_and_reg:hover {
 header {
     width: 100%;
     /* background-color: rgba(0, 0, 0, 0.351); */
-    background-image: linear-gradient(to top right, rgb(32, 32, 32), teal);
+    background-image: linear-gradient(to top right, rgb(32, 32, 32), rgb(185, 185, 185));
     border-bottom: 4px solid #fff;
     margin-top: 50px
 }
@@ -357,7 +357,7 @@ header .header_container .first_block_in_header_cont div p {
 
 header .header_container .first_block_in_header_cont img {
     width: 220px;
-    height: 60px
+    height: 55px
 }
 
 header .header_container .second_block_in_header_cont .flex_div {
@@ -1209,11 +1209,12 @@ margin-top: 30px;
     border: 4px solid silver;
     transition: .3s;
     background-color: #fff;
-    position: relative
+    position: relative;
+  
 }
 
 .container .second_flex_block_in_container .grid_wrap .grid_item img {
-    width: 80%;
+    width: 90%;
     height: 170px !important;
     margin: 0 auto
 }
@@ -1226,7 +1227,8 @@ margin-top: 30px;
     align-items: center;
     justify-content: center;
     background-color: #777;
-    transition: .3s
+    transition: .3s;
+    
 }
 
 .container .second_flex_block_in_container .grid_wrap .grid_item .bottom_info_block p {
@@ -1428,7 +1430,7 @@ footer .footer_container .first_footer_block {
 
 footer .footer_container .first_footer_block img {
     width: 250px;
-    height: 80px;
+    height: 60px ;
 
 }
 
@@ -2095,6 +2097,9 @@ footer .footer_container .four_block_in_footer {
     .two_block_log_and_reg p {
         font-size: 16px
     }
+    .grid_wrap{
+        width: 98%;
+    }
 }
 
 @media (max-width:1200px) {
@@ -2456,7 +2461,7 @@ footer .footer_container .four_block_in_footer {
     }
 
     .grid_wrap .grid_item img {
-        height: 170px !important
+        height: 80% !important
     }
 
     .grid_wrap .grid_item p {
@@ -2465,6 +2470,9 @@ footer .footer_container .four_block_in_footer {
 }
 
 @media (max-width:990px) {
+    .grid_wrap{
+        width: 100% !important;
+    }
     hr{
         display: block !important;
        border: 1px solid black;
@@ -2542,7 +2550,7 @@ margin-bottom: 70px !important;
 
     .first_footer_block img {
         width: 200px !important;
-        height: 70px !important
+        height: 50px !important
 
     }
 
@@ -2811,7 +2819,7 @@ margin-bottom: 70px !important;
     }
 .first_footer_block img{
 width:180px !important;
-    height:60px !important;
+    height:45px !important;
 }
 
   .second_block_top{
@@ -2937,11 +2945,7 @@ margin-left: 0 !important;
 .first_block_in_header_cont p{
     color: rgb(0, 106, 218);
 }
-.first_block_in_header_cont img{
-    width: 180px !important;
-    height: 60px !important;
-  
-}
+
 .first_block_in_header_cont div{
     margin: 0 10px;
 }
@@ -3029,7 +3033,7 @@ margin-left: 0 !important;
     .grid_wrap {
         display: grid;
         grid-template-columns: repeat(2, 1fr) !important;
-        grid-gap: 50px !important;
+        grid-gap: 20px !important;
         
        
     }
@@ -3042,7 +3046,8 @@ margin-left: 0 !important;
     }
     .grid_wrap .grid_item img{
     
-        width: 70% !important;
+        width: 80% !important;
+        height: 80%;
     }
     
     .grid_wrap1 .grid_item1 img{
@@ -3365,7 +3370,7 @@ margin-left: 0 !important;
     
     .grid_wrap .grid_item img{
     
-        width: 60% !important;
+        width: 80% !important;
     }
     .grid_wrap1 {
         height: auto !important;
