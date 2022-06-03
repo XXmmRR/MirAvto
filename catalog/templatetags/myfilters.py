@@ -16,3 +16,17 @@ def cart_total_amount(context):
         return total_bill
     else:
         return 0
+
+
+@register.simple_tag()
+def get_price(price):
+    price = str(price)
+    tail = price[-6:]
+    text=''
+    new_price = price[:-6]
+    steps = len(price[:-6]) // 3
+    for i in range(steps):
+        text += ' ' + new_price[-3:]
+        price = new_price[:-3]
+    new = price+text + ' ' + tail
+    return new

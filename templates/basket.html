@@ -194,7 +194,7 @@
                   <a href="{% url 'item_clear' value.product_id %}"><p>Удалить</p></a>
                 </div></div>
               <div class="fourty_procent "><a href="#">{{value.name}}.</a></div>
-              <div class="thirdty_procent "><span>{{value.price}}</span> <span>{{ value.price|multiply:value.quantity }}</span>
+              <div class="thirdty_procent "><span>{% get_price price=value.price %}</span> <span>{{value.price|multiply:value.quantity}}</span>
               <div class="wrap_quantity">
                 <p>количество: </p>
                 <p class="quantity_item">{{value.quantity}}</p>
@@ -214,8 +214,8 @@
                   <p>Артикул : <span>{{value.article}}</span></p>
                   <p>Ориг.артикул : <span>{{value.article_second}}</span></p>
                   <p class="color">{{value.name}}</p>
-                  <p>Цена : <span>{{value.price}}</span></p>
-                  <p>Сумма : <span>{{ value.price|multiply:value.quantity }}</span></p>
+                  <p>Цена : <span>{% get_price price=value.price %}</span></p>
+                  <p>Сумма : <span>{{value.price|multiply:value.quantity }}</span></p>
                   <div class="wrap_quantity1">
                     <p>количество: </p>
                     <p class="quantity_item1">{{value.quantity}}</p>

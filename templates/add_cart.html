@@ -226,7 +226,7 @@
                 <a href="{% url 'cart_add' part.id %}">{{part.name}}</a>
               </div>
               <div class="first_procent">
-                {% if part.part_exist %}<span>+</span>{% else %}<span>-</span>{% endif %} <span>{{part.price}}</span>
+                {% if part.part_exist %}<span>+</span>{% else %}<span>-</span>{% endif %} <span>{% get_price part.price %}</span>
               </div>
             </div>
             {% endfor %}
@@ -243,7 +243,7 @@
                     <a href="{% url 'cart_add' part.id %}">{{part.name}}</a>
                   </p>
                   <p>наличие : <span>+</span></p>
-                  <p>Цена : <span>{{part.price}}</span></p>
+                  <p>Цена : <span>{% get_price part.price %}</span></p>
                 </div>
               </div>
               {% endfor %}
