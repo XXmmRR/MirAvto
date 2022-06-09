@@ -192,7 +192,9 @@
           <a href="{% url 'home' %}">Главная</a> <span>/</span>
           <a href="">Каталог авто-запчастей </a>
           <h2>Каталог авто-запчастей</h2>
-          <button class="detail_info">Передняя часть</button><button class="detail_info">Задняя часть</button><button class="detail_info">Левая часть</button><button class="detail_info">Правая часть</button>
+          {% for type in types %}
+          <a href="{% url 'details_types' type.category.part_list.list_slug type.category.category_slug type.slug%}"><button class="detail_info">{{type.name}}</button></a>
+          {% endfor %}
         </div>
         <div class="three_block_grid_and_info">
           <div class="top_and_bottom_block first_block_top">

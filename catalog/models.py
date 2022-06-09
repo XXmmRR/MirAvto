@@ -44,6 +44,20 @@ class Category(models.Model):
         verbose_name_plural = "Категории"
 
 
+class Type(models.Model):
+    category = models.ForeignKey(Category, on_delete=models.CASCADE, blank=True, null=True, related_name='cat',
+                                 verbose_name='Категория')
+    name = models.CharField(max_length=255, verbose_name='Название категории')
+    slug = models.SlugField(max_length=250, verbose_name='Слаг')
+
+    def __str__(self):
+        return f'{self.category.category_name} {self.name}'
+
+    class Meta:
+        db_table = "Типы деталей"
+        verbose_name_plural = 'Типы деталей'
+
+
 class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, blank=True, null=True, related_name='category',
                                  verbose_name='Категория')
@@ -51,6 +65,7 @@ class Product(models.Model):
     article_second = models.CharField(max_length=255, verbose_name='Коментарий')
     name = models.CharField(max_length=255, verbose_name='Название детали', blank=True, null=True)
     part_slug = models.SlugField(max_length=250, verbose_name='Слаг')
+    type = models.ForeignKey(Type, on_delete=models.CASCADE, blank=True, null=True, related_name='type')
     price = models.DecimalField(max_digits=15, decimal_places=2, blank=True, null=True)
     image = models.ImageField(upload_to='images/shop',)
 
