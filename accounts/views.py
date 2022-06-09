@@ -5,7 +5,6 @@ from catalog.models import PartList
 from django.contrib.auth.views import LoginView
 from django.contrib.auth.forms import AuthenticationForm
 
-
 class SignUpView(generic.CreateView):
     form_class = CustomUserCreationForm
     extra_context = {PartList.objects.all(): 'parts'}
