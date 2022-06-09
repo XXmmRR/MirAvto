@@ -114,6 +114,12 @@ def CartPageView(request):
     parts_panel = PartList.objects.all()
     return render(request, "basket.html", {'form': form, 'parts': parts_panel})
 
+@login_required
+def cart_add_few(request, id, quanity):
+    cart = Cart(request)
+    product = Product.objects.get(id=id)
+    cart.add(product=product, quanity=quanity)
+    return redirect("basket")
 
 @login_required
 def cart_add(request, id):
