@@ -47,7 +47,8 @@ class ContactPageView(ListView):
 class CatalogView(ListView):
     template_name = 'Catalog.html'
     model = PartList
-    context_object_name = 'parts'
+    context_object_name = 'part'
+    extra_context = {'parts': PartList.objects.all()}
 
 
 def CatalogDetailView(request, slug):
@@ -65,7 +66,7 @@ def PartsListView(request, slug, category):
 
 class PartSearchListView(ListView):
     model = PartList
-    context_object_name = 'parts'
+    context_object_name = 'part'
     parts_panel = PartList.objects.all()
     extra_context = {'parts': parts_panel}
     template_name = 'Catalog.html'

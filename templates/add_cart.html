@@ -92,7 +92,7 @@
           <a href="{% url 'contact' %}">Контакты</a>
         </div>
         <div class="six_block_on_top ">
-          <a href="{% url 'basket' %}">корзина</a>
+          <a href="{% url 'basket' %}">Корзина</a>
         </div>
       </div>
     </nav>
@@ -190,21 +190,23 @@
           <a href="{% url 'home' %}">Главная</a> <span>/</span>
           <a href="">Каталог авто-запчастей </a>
           <h2>Каталог авто-запчастей</h2>
+          <button class="detail_info">Передняя часть</button><button class="detail_info">Задняя часть</button><button class="detail_info">Левая часть</button><button class="detail_info">Правая часть</button>
         </div>
         <div class="three_block_grid_and_info">
           <div class="top_and_bottom_block first_block_top">
-            <div class="five_block_in_top_block ten_procent"><p>Фото</p></div>
+            <div class="five_block_in_top_block ten_procent"></div>
             <div class="five_block_in_top_block ten_procent">
-              <a href="#">оригинальный артикул</a>
+              <a href="#">Ориг.номер</a>
             </div>
             <div class="five_block_in_top_block ten_procent">
-              <a href="#">Дополнительный артикул</a>
+              <a href="#">Название детали </a>
             </div>
             <div class="five_block_in_top_block fourty_procent">
-              <a href="#">наименование</a>
+              <a href="#">Коментарии</a>
             </div>
             <div class="five_block_in_top_block thirdty_procent">
-              <span>наличие</span> <span>цена</span>
+              <span>Кол-во</span> <span>Цена</span>
+              
             </div>
           </div>
           <div class="top_and_bottom_block second_block_top">
@@ -215,20 +217,34 @@
             <div style="display: none" id="jsonData" data-json="{% get_json part.price %}"></div>
             <div class="div_in_massive">
               <div class="ten_procent ten_procent1">
-                <img src="{{part.image.url}}" alt="" class="imgg" />
+                <img src="{{part.image.url}}" alt="" class="imgg" onclick="this.classList.toggle('big'); " />
               </div>
               <div class="ten_procent ten_procent2">
                 <a href="#" class="">{{part.article}}</a>
               </div>
-              <div class="ten_procent ten_procent3">
-                <a href="#">{{part.article_second}}</a>
-              </div>
               <div class="fourty_procent">
                 <a href="{% url 'cart_add' part.id %}">{{part.name}}</a>
               </div>
-              <div class="first_procent">
-                {% if part.part_exist %}<span>+</span>{% else %}<span>-</span>{% endif %} <span>{{part.price}}</span>
+              <div class="ten_procent fourty_procent fourty">
+                <a href="#">{{part.article_second}}</a>
               </div>
+              
+              <div class="first_procent">
+                <!-- {% if part.part_exist %}<span>+</span>{% else %}<span>-</span>{% endif %} -->
+                <span class="number">
+                   
+                  <button class="plus">+</button>
+                  
+                      <input type="text" value="0" size="5" class="input"/>
+                      <button class="minus">-</button>
+                      
+                    
+                
+                </span> 
+                <span >{{part.price}}</span>
+            
+              </div>
+              <button class="Add_cart1">Добавить в корзину</button>
             </div>
             {% endfor %}
             <div class="cart_div">
@@ -239,13 +255,24 @@
                   <img src="{{part.image.url}}" alt="" />
                 </div>
                 <div class="width80">
-                  <p>Артикул : <span>{{part.article}}</span></p>
-                  <p>Ориг.артикул : <span>{{part.article_second}}</span></p>
-                  <p class="color">
+                  <p>Ориг.Номер : <span>{{part.article}}</span></p>
+                  <p> Название детали:
                     <a href="{% url 'cart_add' part.id %}">{{part.name}}</a>
                   </p>
-                  <p>наличие : <span>+</span></p>
-                  <p>Цена : <span>{{part.price}}</span></p>
+                  <p>Коментарии:</p>
+                  <!-- <p>Применяемость : <span>{{part.article_second}}</span></p> -->
+                  <p class="flex">Кол-во : <span class="number">
+                   
+                       
+                    <button class="minus">-</button>
+                        <input type="text" value="0" size="5" class="input"/>
+                 
+                        
+                        <button class="plus">+</button>
+                  
+                  </span> </p>
+                  <p class="price">Цена : <span>{{part.price}}</span></p>
+                  <button class="Add_cart">Добавить в корзину</button>
                 </div>
               </div>
               {% endfor %}
@@ -350,5 +377,53 @@
     <div class="blur_bg"></div>
     <div class="blur_bg1"></div>
     <script src="{% static 'js/index.js' %}"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript">
+
+          //    window.onload = function myd() {
+
+          //   document.getElementById('justbutton').click()
+
+          //   timeoutId = setInterval(myd, 10000)
+
+          //   clearTimeout(timeoutId) // -  без этого цикл будет бесконечным, а если раскомментировать то сработает один раз
+
+          // }
+
+            $(document).ready(function() {
+
+        $('.minus').click(function () {
+
+            var $input = $(this).parent().find('input');
+
+            var count = parseInt($input.val()) - 1;
+
+            count = count < 1 ? 1 : count;
+
+            $input.val(count);
+
+            $input.change();
+
+            return false;
+
+        });
+
+        $('.plus').click(function () {
+
+            var $input = $(this).parent().find('input');
+
+            $input.val(parseInt($input.val()) + 1);
+
+            $input.change();
+
+            return false;
+
+        });
+
+    });
+
+         
+
+    </script>
   </body>
 </html>
