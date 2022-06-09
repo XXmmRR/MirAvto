@@ -1,5 +1,6 @@
 from django.db import models
 from phonenumber_field.modelfields import PhoneNumberField
+from django.utils.safestring import mark_safe
 # Create your models here.
 
 
@@ -46,13 +47,19 @@ class Category(models.Model):
 class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, blank=True, null=True, related_name='category',
                                  verbose_name='Категория')
-    article = models.CharField(max_length=255, verbose_name='Оригинальный артикул')
-    article_second = models.CharField(max_length=255, verbose_name='Дополнительный артикул')
-    name = models.CharField(max_length=255, verbose_name='Наименование', blank=True, null=True)
-    part_exist = models.BooleanField(verbose_name='Наличие')
+    article = models.CharField(max_length=255, verbose_name='Оригинальный номер')
+    article_second = models.CharField(max_length=255, verbose_name='Применяемость')
+    name = models.CharField(max_length=255, verbose_name='Название детали', blank=True, null=True)
     part_slug = models.SlugField(max_length=250, verbose_name='Слаг')
     price = models.DecimalField(max_digits=15, decimal_places=2, blank=True, null=True)
     image = models.ImageField(upload_to='images/shop',)
+
+    def image_tag(self):
+        if self.image:
+            return mark_safe('<img src="%s" style="width: 45px; height:45px;" />' % self.image.url)
+        else:
+            return 'No Image Found'
+    image_tag.short_description = 'Image'
 
     def __str__(self):
         return f'{self.name}:{self.price}'

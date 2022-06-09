@@ -168,15 +168,15 @@
         </div>
         <div class="three_block_grid_and_info">
           <div class="top_and_bottom_block first_block_top">
-            <div class="five_block_in_top_block ten_procent"><p>Фото</p></div>
+            <div class="five_block_in_top_block ten_procent"></div>
             <div class="five_block_in_top_block ten_procent">
-              <a href="#">оригинальный артикул</a>
+              <a href="#">Ориг.Номер</a>
             </div>
             <div class="five_block_in_top_block ten_procent">
-              <a href="#">Дополнительный артикул</a>
+              <a href="#">Название детали</a>
             </div>
             <div class="five_block_in_top_block fourty_procent">
-              <a href="#">наименование</a>
+              <a href="#">Коментарии</a>
             </div>
             <div class="five_block_in_top_block thirdty_procent">
               <span>Цена</span> <div> <span>Сумма</span></div>
@@ -188,16 +188,25 @@
               <div class="ten_procent ten_procent1">
                 <img src="{{value.image}}" alt="" class="imgg">
               </div>
-              <div class="ten_procent ten_procent2"><a href="#" class="">{{value.article}}</a></div>
-              <div class="ten_procent ten_procent3"><a href="#">{{value.article_second}}</a>
+              <div class="ten_procent ten_procent2 margin1"><a href="#" class="">{{value.article}}</a></div>
+              <div class="fourty_procent margin2"><a href="#" >{{value.name}}.</a></div>
+              <div class="ten_procent ten_procent3 margin3"><a href="#">{{value.article_second}}</a>
                 <div class="del_block">
                   <a href="{% url 'item_clear' value.product_id %}"><p>Удалить</p></a>
                 </div></div>
-              <div class="fourty_procent "><a href="#">{{value.name}}.</a></div>
               <div class="thirdty_procent "><span>{{value.price}}</span> <span>{{ value.price|multiply:value.quantity }}</span>
               <div class="wrap_quantity">
-                <p>количество: </p>
-                <p class="quantity_item">{{value.quantity}}</p>
+                <p>Кол-во: </p> <span class="number flex1">
+                   
+                  <button class="plus">+</button>
+                  
+                      <input type="text" value="0" size="5" class="input"/>
+                      <button class="minus">-</button>
+                      
+                    
+                
+                </span> 
+                <!-- <p class="quantity_item">{{value.quantity}}</p> -->
               </div>
                
               </div>
@@ -211,15 +220,25 @@
                   <img src="{{value.image}}" alt="">
                 </div>
                 <div class="width80">
-                  <p>Артикул : <span>{{value.article}}</span></p>
-                  <p>Ориг.артикул : <span>{{value.article_second}}</span></p>
-                  <p class="color">{{value.name}}</p>
+                  <p>Ориг.Номер : <span>{{value.article}}</span></p>
+                  <!-- <p>Применяемость : <span>{{value.article_second}}</span></p> -->
+                  <p> Название детали:  <a href="">{{value.name}}</a></p>
+                  <p>Коментарии:</p>
                   <p>Цена : <span>{{value.price}}</span></p>
                   <p>Сумма : <span>{{ value.price|multiply:value.quantity }}</span></p>
-                  <div class="wrap_quantity1">
-                    <p>количество: </p>
-                    <p class="quantity_item1">{{value.quantity}}</p>
-                  </div>
+              
+                    <p class="flex">кол-во: <span class="number">
+                   
+                       
+                      <button class="minus">-</button>
+                          <input type="text" value="0" size="5" class="input"/>
+                   
+                          
+                          <button class="plus">+</button>
+                    
+                    </span> </p>
+                    <!-- <p class="quantity_item1">количество: {{value.quantity}}</p> -->
+                 
                   <div class="del_block">
                   <a href="{% url 'item_clear' value.product_id %}"><p>Удалить</p></a>
                 </div>
@@ -329,5 +348,53 @@
     <div class="blur_bg"></div>
     <div class="blur_bg1"></div>
     <script src="{% static './js/index.js' %}"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+    <script type="text/javascript">
+
+  //     window.onload = function myd() {
+
+  //    document.getElementById('justbutton').click()
+
+  //    timeoutId = setInterval(myd, 10000)
+
+  //    clearTimeout(timeoutId) // -  без этого цикл будет бесконечным, а если раскомментировать то сработает один раз
+
+  //  }
+
+     $(document).ready(function() {
+
+ $('.minus').click(function () {
+
+     var $input = $(this).parent().find('input');
+
+     var count = parseInt($input.val()) - 1;
+
+     count = count < 1 ? 1 : count;
+
+     $input.val(count);
+
+     $input.change();
+
+     return false;
+
+ });
+
+ $('.plus').click(function () {
+
+     var $input = $(this).parent().find('input');
+
+     $input.val(parseInt($input.val()) + 1);
+
+     $input.change();
+
+     return false;
+
+ });
+
+});
+
+  
+
+</script>
   </body>
 </html>

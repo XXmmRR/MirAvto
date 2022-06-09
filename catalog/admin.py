@@ -30,12 +30,11 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class PartAdmin(admin.ModelAdmin):
-    list_display = ('category', 'article', 'article_second', 'name', 'price')
+    list_display = ('category', 'article', 'article_second', 'name', 'price', 'image_tag')
     search_fields = ('category', 'article', 'article_second', 'name', 'price')
     ordering = ('name', 'price')
     prepopulated_fields = {'part_slug': ('name',)}
     raw_id_fields = ['category']
-
 
 admin.site.register(Order)
 

@@ -73,7 +73,7 @@
         </div>
         <div class="six_block_on_top "><a href="{% url 'contact' %}">Контакты</a></div>
         <div class="six_block_on_top ">
-          <a href="{% url 'basket' %}">корзина</a>
+          <a href="{% url 'basket' %}">Корзина</a>
         </div>
       </div>
     </nav>
@@ -92,7 +92,7 @@
           <p class="catalog_search">Поиск по каталогу</p>
           <div class="flex_div">
             <form class="input-group filter-bar-search flex_div" action="{% url 'search_details' %}" method="get">
-            <input type="text" name="g">
+            <input type="text" name="g" >
             <button type="button">
               <img src="{% static 'icon/211817_search_strong_icon.png' %}" alt="" />
               <p>Найти</p>
