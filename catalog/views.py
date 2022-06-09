@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import PartList, Category, Product, Mark, Order
+from .models import PartList, Category, Product, Mark, Order, Type
 from django.views.generic import DetailView, ListView, TemplateView
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponse
@@ -9,7 +9,6 @@ from django.db.models import Q
 from .forms import OrderForm
 from .tasks import total_price, get_parts
 from .bot import send_message
-
 # Create your views here.
 
 
@@ -60,8 +59,18 @@ def CatalogDetailView(request, slug):
 
 def PartsListView(request, slug, category):
     parts_panel = PartList.objects.all()
+    types = Type.objects.filter(category__category_slug=category)
     part = Product.objects.filter(category__category_slug=category, category__part_list__list_slug=slug)
-    return render(request, 'add_cart.html', {'parts_main': part, 'parts': parts_panel})
+    return render(request, 'add_cart.html', {'parts_main': part, 'parts': parts_panel, 'types': types})
+
+
+def PartListCategory(request, slug, category, type):
+    parts_panel = PartList.objects.all()
+    types = Type.objects.filter(category__category_slug=category)
+    part = Product.objects.filter(category__category_slug=category,
+                                  category__part_list__list_slug=slug,
+                                  type__slug=type)
+    return render(request, 'add_cart.html', {'parts_main': part, 'parts': parts_panel, 'types': types})
 
 
 class PartSearchListView(ListView):
@@ -114,12 +123,14 @@ def CartPageView(request):
     parts_panel = PartList.objects.all()
     return render(request, "basket.html", {'form': form, 'parts': parts_panel})
 
+
 @login_required
 def cart_add_few(request, id, quanity):
     cart = Cart(request)
     product = Product.objects.get(id=id)
     cart.add(product=product, quanity=quanity)
     return redirect("basket")
+
 
 @login_required
 def cart_add(request, id):
