@@ -48,7 +48,7 @@ class Product(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, blank=True, null=True, related_name='category',
                                  verbose_name='Категория')
     article = models.CharField(max_length=255, verbose_name='Оригинальный номер')
-    article_second = models.CharField(max_length=255, verbose_name='Применяемость')
+    article_second = models.CharField(max_length=255, verbose_name='Коментарий')
     name = models.CharField(max_length=255, verbose_name='Название детали', blank=True, null=True)
     part_slug = models.SlugField(max_length=250, verbose_name='Слаг')
     price = models.DecimalField(max_digits=15, decimal_places=2, blank=True, null=True)
