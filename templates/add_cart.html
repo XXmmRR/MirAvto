@@ -212,6 +212,7 @@
             <p>По вашему запросу ничего не найдено</p>
             {% endif %}
             {% for part in parts_main %}
+            <div style="display: none" id="jsonData" data-json="{% get_json part.price %}"></div>
             <div class="div_in_massive">
               <div class="ten_procent ten_procent1">
                 <img src="{{part.image.url}}" alt="" class="imgg" />
@@ -226,12 +227,13 @@
                 <a href="{% url 'cart_add' part.id %}">{{part.name}}</a>
               </div>
               <div class="first_procent">
-                {% if part.part_exist %}<span>+</span>{% else %}<span>-</span>{% endif %} <span>{% get_price part.price %}</span>
+                {% if part.part_exist %}<span>+</span>{% else %}<span>-</span>{% endif %} <span>{{part.price}}</span>
               </div>
             </div>
             {% endfor %}
             <div class="cart_div">
              {% for part in parts_main %}
+              <div style="display: none" id="jsonDataMobile" data-json_mobile="{% get_json part.price %}"></div>
               <div class="div_item">
                 <div class="width20">
                   <img src="{{part.image.url}}" alt="" />
@@ -243,7 +245,7 @@
                     <a href="{% url 'cart_add' part.id %}">{{part.name}}</a>
                   </p>
                   <p>наличие : <span>+</span></p>
-                  <p>Цена : <span>{% get_price part.price %}</span></p>
+                  <p>Цена : <span>{{part.price}}</span></p>
                 </div>
               </div>
               {% endfor %}
