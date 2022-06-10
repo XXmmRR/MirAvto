@@ -168,15 +168,15 @@
         </div>
         <div class="three_block_grid_and_info">
           <div class="top_and_bottom_block first_block_top">
-            <div class="five_block_in_top_block ten_procent"></div>
+            <div class="five_block_in_top_block ten_procent"><p>Фото</p></div>
             <div class="five_block_in_top_block ten_procent">
-              <a href="#">Ориг.Номер</a>
+              <a href="#">оригинальный Номер</a>
             </div>
             <div class="five_block_in_top_block ten_procent">
-              <a href="#">Название детали</a>
+              <a href="#">Применяемость</a>
             </div>
             <div class="five_block_in_top_block fourty_procent">
-              <a href="#">Коментарии</a>
+              <a href="#">наименование</a>
             </div>
             <div class="five_block_in_top_block thirdty_procent">
               <span>Цена</span> <div> <span>Сумма</span></div>
@@ -188,24 +188,16 @@
               <div class="ten_procent ten_procent1">
                 <img src="{{value.image}}" alt="" class="imgg">
               </div>
-              <div class="ten_procent ten_procent2 margin1"><a href="#" class="">{{value.article}}</a></div>
-              <div class="fourty_procent margin2"><a href="#" >{{value.name}}.</a></div>
-              <div class="ten_procent ten_procent3 margin3"><a href="#">{{value.article_second}}</a>
+              <div class="ten_procent ten_procent2"><a href="#" class="">{{value.article}}</a></div>
+              <div class="ten_procent ten_procent3"><a href="#">{{value.article_second}}</a>
                 <div class="del_block">
                   <a href="{% url 'item_clear' value.product_id %}"><p>Удалить</p></a>
                 </div></div>
-              <div class="thirdty_procent "><span>{% get_price value.price %}</span> <span>{% get_price_sum price=value.price|multiply:value.quantity %}</span>
+              <div class="fourty_procent "><a href="#">{{value.name}}.</a></div>
+              <div class="thirdty_procent "><span>{{value.price}}</span> <span>{{ value.price|multiply:value.quantity }}</span>
               <div class="wrap_quantity">
-                <p>Кол-во: {{value.quantity}}</p> <span class="number flex1">
-                   
-                  <a href="{% url 'item_increment' value.product_id %}"><button class="plus">+</button></a>
-                  
-
-                <a href="{% url 'item_decrement' value.product_id %}"><button class="minus">-</button></a>
-                      
-                    
-                </span>
-                <!-- <p class="quantity_item">{{value.quantity}}</p> -->
+                <p>количество: </p>
+                <p class="quantity_item">{{value.quantity}}</p>
               </div>
                
               </div>
@@ -219,24 +211,15 @@
                   <img src="{{value.image}}" alt="">
                 </div>
                 <div class="width80">
-                  <p>Ориг.Номер : <span>{{value.article}}</span></p>
-                  <!-- <p>Применяемость : <span>{{value.article_second}}</span></p> -->
-                  <p> Название детали:  <a href="">{{value.name}}</a></p>
-                  <p>Коментарии:</p>
-                  <p>Цена : <span>{% get_price value.price %}</span></p>
-                  <p>Сумма : <span>{% get_price_sum price=value.price|multiply:value.quantity %}</span></p>
-              
-                    <p class="flex">Кол-во: {{value.quantity}}.<span class="number">
-                   
-                       
-                  <a href="{% url 'item_increment' value.product_id %}"><button class="plus">+</button></a>
-                   
-                          
-                <a href="{% url 'item_decrement' value.product_id %}"><button class="minus">-</button></a>
-                    
-                    </span> </p>
-                    <!-- <p class="quantity_item1">количество: {{value.quantity}}</p> -->
-                 
+                  <p>Номер : <span>{{value.article}}</span></p>
+                  <p>Применяемость : <span>{{value.article_second}}</span></p>
+                  <p class="color">{{value.name}}</p>
+                  <p>Цена : <span>{{value.price}}</span></p>
+                  <p>Сумма : <span>{{ value.price|multiply:value.quantity }}</span></p>
+                  <div class="wrap_quantity1">
+                    <p>количество: </p>
+                    <p class="quantity_item1">{{value.quantity}}</p>
+                  </div>
                   <div class="del_block">
                   <a href="{% url 'item_clear' value.product_id %}"><p>Удалить</p></a>
                 </div>
@@ -248,7 +231,7 @@
             </div>
             <div class="all_cash">
                 <div class="div_for_info_in_bottom ">
-                    <span>Итого </span><span> {{request.session.cart|length}} : </span> <span>{% cart_total_amount_space %}</span>
+                    <span>Итого</span> <span>{{request.session.cart|length}}:</span> <span>{% cart_total_amount %}</span>
                   <form method="POST" class="post-form ">{% csrf_token %}
                     {{form.as_p}}
                     <button type="submit" class="save btn btn-default">Save</button>
@@ -346,6 +329,5 @@
     <div class="blur_bg"></div>
     <div class="blur_bg1"></div>
     <script src="{% static './js/index.js' %}"></script>
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
   </body>
 </html>

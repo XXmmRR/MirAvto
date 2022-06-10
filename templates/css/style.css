@@ -357,7 +357,7 @@ header .header_container .first_block_in_header_cont div p {
 
 header .header_container .first_block_in_header_cont img {
     width: 220px;
-    height: 60px
+    height: 55px
 }
 
 header .header_container .second_block_in_header_cont .flex_div {
@@ -893,14 +893,15 @@ margin-top: 30px;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    height: 350px
+    height: 350px;
+    position: relative;
 }
 .container .second_flex_block_in_container .three_block_grid_and_info .forms {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    height: 200px
+    height: 150px
 }
 .container .second_flex_block_in_container .threee2  {
    
@@ -914,16 +915,21 @@ margin-top: 30px;
 .container .second_flex_block_in_container .three_block_grid_and_info form button {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     height: 35px;
     background-color: #ffd576;
     color: #6d5b30;
-    padding: 0 10px;
+    padding-bottom: 10px;
     border: 2px solid #b09045;
     transition: .3s;
     border-radius: 5px;
-    margin-left: 207px;
-    margin-top: 20px;
+    width: 54.5%;
+    position: absolute;
+    right: 50%;
+    bottom: -90px;
+    transform: translate(55%, -50%);
+    
+   
 }
 .container .second_flex_block_in_container .three_block_grid_and_info form .sub {
     display: flex;
@@ -949,20 +955,19 @@ margin-top: 30px;
 .container .second_flex_block_in_container .three_block_grid_and_info form .sub1 {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     height: 35px;
     background-color: #ffd576;
     color: #6d5b30;
-    padding: 0 10px;
+    padding-bottom: 10px;
     border: 2px solid #b09045;
     transition: .3s;
     border-radius: 5px;
-    width: 55%;
-
-    position: relative;
-    z-index: 2;
-    top: 20px;
-    margin-left: 240px;
+    width: 54.5%;
+    position: absolute;
+    right: 50%;
+    bottom: -70px;
+    transform: translate(55%, -50%);
 }
 .container .second_flex_block_in_container .three_block_grid_and_info form .sub1 p {
     margin: 5px auto;
@@ -1000,7 +1005,11 @@ margin-top: 30px;
 }
 
 .container .second_flex_block_in_container .three_block_grid_and_info form .four_block_in_form p label {
-    color: black
+    color: black;
+    width: 30%;
+    display: flex;
+    justify-content: end;
+    font-size: 16px;
 }
 
 .container .second_flex_block_in_container .three_block_grid_and_info form .four_block_in_form p input {
@@ -1088,6 +1097,10 @@ margin-top: 30px;
     width: 20%;
     padding-left: 20px;
     display: flex
+}
+.container .second_flex_block_in_container .three_block_grid_and_info .second_block_top .div_in_massive .ten_procent img {
+   width: 100%;
+   height: 100% ;
 }
 
 .container .second_flex_block_in_container .three_block_grid_and_info .second_block_top .div_in_massive .ten_procent a {
@@ -1209,11 +1222,12 @@ margin-top: 30px;
     border: 4px solid silver;
     transition: .3s;
     background-color: #fff;
-    position: relative
+    position: relative;
+  
 }
 
 .container .second_flex_block_in_container .grid_wrap .grid_item img {
-    width: 80%;
+    width: 90%;
     height: 170px !important;
     margin: 0 auto
 }
@@ -1226,7 +1240,8 @@ margin-top: 30px;
     align-items: center;
     justify-content: center;
     background-color: #777;
-    transition: .3s
+    transition: .3s;
+    
 }
 
 .container .second_flex_block_in_container .grid_wrap .grid_item .bottom_info_block p {
@@ -1408,7 +1423,7 @@ margin-top: 30px;
 
 
 footer {
-    background-image: linear-gradient(to top right, rgb(32, 32, 32), teal);
+    background-image: linear-gradient(to top right, rgb(32, 32, 32), rgb(185, 185, 185));
     padding: 30px
 }
 
@@ -1428,7 +1443,7 @@ footer .footer_container .first_footer_block {
 
 footer .footer_container .first_footer_block img {
     width: 250px;
-    height: 70px;
+    height: 60px ;
 
 }
 
@@ -2026,11 +2041,12 @@ footer .footer_container .four_block_in_footer {
     transform: translate(-50%, -50%);
     width: 80%;
     margin: 0 auto;
-    height: 150px;
+    height: 160px;
     background-color: #fff;
     border-radius: 5px;
     display: flex;
     flex-direction: column;
+    padding: 0 30px;
     border: 2px solid #000;
     transition: .3s
 }
@@ -2038,12 +2054,12 @@ footer .footer_container .four_block_in_footer {
 .search_block h2 {
     font-size: 25px;
     color: #ffd576;
-    margin: 0 40px
+    margin: 0 auto
 }
 
 .search_block .mobile_search input {
     width: 100%;
-    margin: 20px auto;
+    margin: 20px auto !important;
     border: 2px solid #007ec7;
     height: 40px;
     border-radius: 5px
@@ -2095,6 +2111,9 @@ footer .footer_container .four_block_in_footer {
     .two_block_log_and_reg p {
         font-size: 16px
     }
+    .grid_wrap{
+        width: 98%;
+    }
 }
 
 @media (max-width:1200px) {
@@ -2130,20 +2149,19 @@ footer .footer_container .four_block_in_footer {
     .container .second_flex_block_in_container .three_block_grid_and_info form .sub1 {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
         height: 35px;
         background-color: #ffd576;
         color: #6d5b30;
-        padding: 0 10px;
+        padding-bottom: 10px;
         border: 2px solid #b09045;
         transition: .3s;
         border-radius: 5px;
-        width: 55%;
-    
-        position: relative;
-        z-index: 2;
-        top: 20px;
-        margin-left: 200px;
+        width: 54.5%;
+        position: absolute;
+        right: 50%;
+        bottom: -70px;
+        transform: translate(55%, -50%);
     }
     .grid_wrap {
         display: grid;
@@ -2456,7 +2474,7 @@ footer .footer_container .four_block_in_footer {
     }
 
     .grid_wrap .grid_item img {
-        height: 170px !important
+        height: 80% !important
     }
 
     .grid_wrap .grid_item p {
@@ -2465,6 +2483,9 @@ footer .footer_container .four_block_in_footer {
 }
 
 @media (max-width:990px) {
+    .grid_wrap{
+        width: 100% !important;
+    }
     hr{
         display: block !important;
        border: 1px solid black;
@@ -2542,7 +2563,7 @@ margin-bottom: 70px !important;
 
     .first_footer_block img {
         width: 200px !important;
-        height: 70px !important
+        height: 50px !important
 
     }
 
@@ -2558,19 +2579,41 @@ margin-bottom: 70px !important;
         height: 350px;
         width: 80% !important
     }
-
-    .three_block_grid_and_info form button {
+    .container .second_flex_block_in_container .three_block_grid_and_info form .sub1{
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
         height: 35px;
         background-color: #ffd576;
         color: #6d5b30;
-        padding: 0 10px;
+        padding-bottom: 10px;
         border: 2px solid #b09045;
         transition: .3s;
         border-radius: 5px;
-        margin-left: 167px
+        width: 67.5%;
+        position: absolute;
+        right: 0%;
+        bottom: -60px;
+        transform: translate(0%, 0%);
+    }
+    .container .second_flex_block_in_container .three_block_grid_and_info form button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 35px;
+        background-color: #ffd576;
+        color: #6d5b30;
+        padding-bottom: 10px;
+        border: 2px solid #b09045;
+        transition: .3s;
+        border-radius: 5px;
+        width: 67.5%;
+        position: absolute;
+        right: 0%;
+        bottom: -80px;
+        transform: translate(0%, 0%);
+        
+       
     }
 
     .three_block_grid_and_info form button p {
@@ -2811,7 +2854,7 @@ margin-bottom: 70px !important;
     }
 .first_footer_block img{
 width:180px !important;
-    height:60px !important;
+    height:45px !important;
 }
 
   .second_block_top{
@@ -2937,11 +2980,7 @@ margin-left: 0 !important;
 .first_block_in_header_cont p{
     color: rgb(0, 106, 218);
 }
-.first_block_in_header_cont img{
-    width: 180px !important;
-    height: 60px !important;
-  
-}
+
 .first_block_in_header_cont div{
     margin: 0 10px;
 }
@@ -3029,7 +3068,7 @@ margin-left: 0 !important;
     .grid_wrap {
         display: grid;
         grid-template-columns: repeat(2, 1fr) !important;
-        grid-gap: 50px !important;
+        grid-gap: 20px !important;
         
        
     }
@@ -3042,7 +3081,8 @@ margin-left: 0 !important;
     }
     .grid_wrap .grid_item img{
     
-        width: 70% !important;
+        width: 80% !important;
+        height: 80%;
     }
     
     .grid_wrap1 .grid_item1 img{
@@ -3285,20 +3325,42 @@ margin-left: 0 !important;
     .reg p {
         font-size: 15px !important
     }
-    .three_block_grid_and_info form button {
+    .container .second_flex_block_in_container .three_block_grid_and_info form button {
         display: flex;
         align-items: center;
-        justify-content: space-between;
+        justify-content: center;
         height: 35px;
         background-color: #ffd576;
         color: #6d5b30;
-        padding: 0 10px;
+        padding-bottom: 10px;
         border: 2px solid #b09045;
         transition: .3s;
         border-radius: 5px;
-        margin-left: 70px !important;
-        margin-top: 20px;
-        width: 90% !important;
+        width: 90%;
+        position: absolute;
+        right: -40px;
+        bottom: -220px;
+        
+        
+       
+    }
+    .container .second_flex_block_in_container .three_block_grid_and_info form .sub1 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 35px;
+        background-color: #ffd576;
+        color: #6d5b30;
+        padding-bottom: 10px;
+        border: 2px solid #b09045;
+        transition: .3s;
+        border-radius: 5px;
+        width: 90%;
+        position: absolute;
+        right: -40px;
+        bottom: -70px;
+        
+        
        
     }
     .three_block_grid_and_info form button p {
@@ -3323,7 +3385,15 @@ margin-left: 0 !important;
         width: 90% !important;
         margin-left: 30px !important
     }
-
+    .four_block_in_form p label {
+   
+     transform: translate(50%, 0%);
+     
+    text-align: center !important;
+     width: auto !important;
+     transform: translate(0%, 0%);
+   
+    }
     .four_block_in_form p input {
         height: 40px;
         width: 100% !important;
@@ -3365,7 +3435,7 @@ margin-left: 0 !important;
     
     .grid_wrap .grid_item img{
     
-        width: 60% !important;
+        width: 80% !important;
     }
     .grid_wrap1 {
         height: auto !important;
