@@ -48,7 +48,7 @@ class Type(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, blank=True, null=True, related_name='cat',
                                  verbose_name='Категория')
     name = models.CharField(max_length=255, verbose_name='Название категории')
-    slug = models.SlugField(max_length=250, verbose_name='Слаг')
+    slug = models.SlugField(max_length=255, verbose_name='Слаг')
 
     def __str__(self):
         return f'{self.category.category_name} {self.name}'
