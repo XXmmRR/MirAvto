@@ -52,7 +52,7 @@
           {% if user.is_authenticated %}
           <p style="color: #e7bc5a">Добро пожаловать {{user.username}}</p>
           {% else %}
-          <div class="two_block_log_and_reg log1">
+          <div class="two_block_log_and_reg log1 log2">
             <img src="{% static 'icon/3671785_key_icon.png' %}" alt="" />
             <p><a href="{% url 'login' %}">Вход</a></p>
           </div>
@@ -65,11 +65,13 @@
           </div>
           {% endif %}
           <div class="two_block_log_and_reg log1 searc_log">
-            <img
-              src="{% static 'icon/211817_search_strong_icon.png' %}"
-              alt=""
-            />
-            <p>Поиск по каталогу</p>
+            <img src="{% static 'icon/211817_search_strong_icon.png' %}" alt="" />
+            <form action="#" class="form_search"> <input type="text" placeholder="Поиск...." class="adaptive_search"></form>
+         
+          </div>
+          <div class="two_block_log_and_reg log1 searc_log searc_log2">
+            <a href="{% url 'basket' %}"> <img src="{% static 'icon/186387_cart_shopping_icon.png' %}" alt=""></a>
+         
           </div>
         </div>
       </div>
