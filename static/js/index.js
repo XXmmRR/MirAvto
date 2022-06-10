@@ -23,18 +23,15 @@ let first = document.querySelector('.first1')
 let first_flex_block_in_container = document.querySelector('.first_flex_block_in_container')
 let second_header_cont = document.querySelector('.second_header_cont')
 let burg_menu = document.querySelector('.burg_menu')
-let searc_log = document.querySelector('.searc_log')
-let search_block = document.querySelector('.search_block')
-let bg_block = document.querySelector('.bg_block')
 
-searc_log.onclick = () =>{
-    search_block.classList.toggle('search_block_active')
-    bg_block.classList.toggle('bg_block_active')
-}
-bg_block.onclick = () =>{
-    search_block.classList.toggle('search_block_active')
-    bg_block.classList.toggle('bg_block_active')
-}
+// let search_block = document.querySelector('.search_block')
+// let bg_block = document.querySelector('.bg_block')
+
+
+// bg_block.onclick = () =>{
+//     search_block.classList.toggle('search_block_active')
+//     bg_block.classList.toggle('bg_block_active')
+// }
 
 
 burg_menu.onclick = () =>{
