@@ -24,15 +24,6 @@ let first_flex_block_in_container = document.querySelector('.first_flex_block_in
 let second_header_cont = document.querySelector('.second_header_cont')
 let burg_menu = document.querySelector('.burg_menu')
 
-// let search_block = document.querySelector('.search_block')
-// let bg_block = document.querySelector('.bg_block')
-
-
-// bg_block.onclick = () =>{
-//     search_block.classList.toggle('search_block_active')
-//     bg_block.classList.toggle('bg_block_active')
-// }
-
 
 burg_menu.onclick = () =>{
     first.classList.toggle('active_burg')
