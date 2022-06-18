@@ -195,8 +195,7 @@
           <a href="">Каталог авто-запчастей </a>
           <h2>Каталог авто-запчастей</h2>
           {% for type in types %}
-          <a href="{% url 'details_types' type.category.part_list.list_slug type.category.category_slug type.slug%}"><button class="detail_info">{{type.name}}</button></a>
-          {% endfor %}
+          <a href="{% url 'details_types' type.category.part_list.list_slug type.category.category_slug type.type.slug%}"><button class="detail_info">{{type.type.name}}</button></a>          {% endfor %}
         </div>
         <div class="three_block_grid_and_info">
           <div class="top_and_bottom_block first_block_top">
@@ -210,7 +209,7 @@
             <div class="five_block_in_top_block fourty_procent">
               <a href="#">Коментарии</a>
             </div>
-            <div class="five_block_in_top_block thirdty_procent">
+            <div cxlass="five_block_in_top_block thirdty_procent">
               <span>Кол-во</span> <span>Цена</span>
               
             </div>

@@ -39,10 +39,9 @@ class PartAdmin(admin.ModelAdmin):
 
 @admin.register(Type)
 class TypeAdmin(admin.ModelAdmin):
-    list_display = ('category', 'name', 'slug')
-    search_fields = ('category', 'name')
+    list_display = ('name', 'slug')
+    search_fields = ('name',)
     prepopulated_fields = {'slug': ('name',)}
-    raw_id_fields = ['category']
 
 
 admin.site.register(Order)

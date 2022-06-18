@@ -59,14 +59,15 @@ def CatalogDetailView(request, slug):
 
 def PartsListView(request, slug, category):
     parts_panel = PartList.objects.all()
-    types = Type.objects.filter(category__category_slug=category)
     part = Product.objects.filter(category__category_slug=category, category__part_list__list_slug=slug)
+    types = Product.objects.filter(category__category_slug=category, category__part_list__list_slug=slug).distinct('type')
+    print([x.type for x in types])
     return render(request, 'add_cart.html', {'parts_main': part, 'parts': parts_panel, 'types': types})
 
 
 def PartListCategory(request, slug, category, type):
     parts_panel = PartList.objects.all()
-    types = Type.objects.filter(category__category_slug=category)
+    types = Product.objects.filter(category__category_slug=category, category__part_list__list_slug=slug).distinct('type')
     part = Product.objects.filter(category__category_slug=category,
                                   category__part_list__list_slug=slug,
                                   type__slug=type)
