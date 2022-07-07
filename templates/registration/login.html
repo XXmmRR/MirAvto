@@ -10,6 +10,7 @@
     <title>market</title>
   </head>
   <body>
+    
     <img src="{% static 'image/bg.jpg' %}" alt="#" class="z_index_img" />
     <div class="search_block">
       <h2>Поиск по каталогу</h2>
@@ -40,9 +41,9 @@
           <div class="six_block_on_top">
             <a href="{% url 'pay_page' %}">Оплата</a>
           </div>
-          <div class="six_block_on_top">
+          <!-- <div class="six_block_on_top">
             <a href="{% url 'feedback' %}">Обратная связь</a>
-          </div>
+          </div> -->
           <div class="six_block_on_top">
             <a href="{% url 'contact' %}" class="link_display1">Контакты</a>
             <a href="{% url 'basket' %}" class="link_display">Корзина</a>
@@ -88,14 +89,14 @@
         <div class="six_block_on_top">
           <a href="{% url 'pay_page' %}">Оплата</a>
         </div>
-        <div class="six_block_on_top">
+        <!-- <div class="six_block_on_top">
           <a href="{% url 'feedback' %}">Обратная связь</a>
-        </div>
+        </div> -->
         <div class="six_block_on_top first_hov_block">
           <a href="{% url 'contact' %}">Контакты</a>
         </div>
         <div class="six_block_on_top ">
-          <a href="{% url 'basket' %}">корзина</a>
+          <a href="{% url 'basket' %}">Корзина</a>
         </div>
       </div>
     </nav>
@@ -248,9 +249,9 @@
           <div class="six_block_in_footer">
             <a href="{% url 'pay_page' %}">оплата</a>
           </div>
-          <div class="six_block_in_footer">
+          <!-- <div class="six_block_in_footer">
             <a href="{% url 'feedback' %}">Обратная связь</a>
-          </div>
+          </div> -->
           <div class="six_block_in_footer">
             <a href="{% url 'contact' %}">Контакты</a>
           </div>

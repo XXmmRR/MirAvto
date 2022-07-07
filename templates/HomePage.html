@@ -18,9 +18,10 @@
       <h2>Поиск по каталогу</h2>
       <form class="mobile_search" action="{% url 'search_details' %}" method="get">
         <input type="text" name="g">
-     <button type="button"> Найти</button>
+     <button type="submit"> Найти</button>
       </form>
 
+      
 
     </div>
     <div class="bg_block"></div>
@@ -42,9 +43,9 @@
           <div class="six_block_on_top">
             <a href="{% url 'pay_page' %}">Оплата</a>
           </div>
-          <div class="six_block_on_top">
+          <!-- <div class="six_block_on_top">
             <a href="{% url 'feedback' %}">Обратная связь</a>
-          </div>
+          </div> -->
           <div class="six_block_on_top">
             <a href="{% url 'contact' %}" class="link_display1">Контакты</a>
             <a href="{% url 'basket' %}" class="link_display">Корзина</a>
@@ -59,8 +60,10 @@
               <img src="{% static 'icon/3671785_key_icon.png' %}" alt="" />
 
               <p>Вход</p>
-              </a>
-            </div>
+
+            </a>
+          </div>
+          <!-- <a href="/templates/for_excel.html">CLICK HERE</a> -->
 
           <div class="two_block_log_and_reg">
             <a href="{% url 'register' %}"> <img src="{% static 'icon/signup-icon-29.jpg' %}" alt="" />
@@ -91,9 +94,9 @@
         <div class="six_block_on_top">
           <a href="{% url 'pay_page' %}">Оплата</a>
         </div>
-        <div class="six_block_on_top">
+        <!-- <div class="six_block_on_top">
           <a href="{% url 'home' %}">Обратная связь</a>
-        </div>
+        </div> -->
         <div class="six_block_on_top ">
           <a href="{% url 'contact' %}">Контакты</a>
         </div>
@@ -121,7 +124,7 @@
           <div class="flex_div">
             <form class="input-group filter-bar-search flex_div" action="{% url 'search_details' %}" method="get">
             <input type="text" name="g" placeholder="Поиск.....">
-            <button type="button">
+            <button type="submit">
               <img src="{% static 'icon/211817_search_strong_icon.png' %}" alt="" />
               <p>Найти</p>
             </button>
@@ -348,9 +351,9 @@
           <div class="six_block_in_footer">
             <a href="{% url 'pay_page' %}">оплата</a>
           </div>
-          <div class="six_block_in_footer">
+          <!-- <div class="six_block_in_footer">
             <a href="{% url 'feedback' %}">Обратная связь</a>
-          </div>
+          </div> -->
           <div class="six_block_in_footer">
             <a href="{% url 'contact' %}">Контакты</a>
           </div>

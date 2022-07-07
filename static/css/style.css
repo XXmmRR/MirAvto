@@ -3472,8 +3472,8 @@ margin-left: 0 !important;
     }
 
     .div_item .width20 img {
-        width: 80px !important;
-        height: 80px !important
+        width: 80px ;
+        height: 80px 
     }
 
     .div_item .width80 {
@@ -3637,8 +3637,8 @@ margin-left: 0 !important;
     }
 
     .div_item .width20 img {
-        width: 80px !important;
-        height: 80px !important
+        width: 80px ;
+        height: 80px 
     }
 
     .div_item .width80 {
@@ -3880,8 +3880,8 @@ margin-left: 0 !important;
     }
 
     .aside_info_blocks .div_item .width20 img {
-        width: 80px !important;
-        height: 80px !important
+        width: 80px ;
+        height: 80px 
     }
 
     .aside_info_blocks .div_item .width80 {

@@ -17,7 +17,7 @@
       <h2>Поиск по каталогу</h2>
       <form class="mobile_search" action="{% url 'search_details' %}" method="get">
         <input type="text" name="g">
-     <button type="button"> Найти</button>
+     <button type="submit"> Найти</button>
      </form>
     </div>
     <div class="bg_block"></div>
@@ -42,9 +42,9 @@
           <div class="six_block_on_top">
             <a href="{% url 'pay_page' %}">Оплата</a>
           </div>
-          <div class="six_block_on_top">
+          <!-- <div class="six_block_on_top">
             <a href="{% url 'feedback' %}">Обратная связь</a>
-          </div>
+          </div> -->
           <div class="six_block_on_top">
             <a href="{% url 'contact' %}" class="link_display1">Контакты</a>
             <a href="{% url 'basket' %}" class="link_display">Корзина</a>
@@ -90,9 +90,9 @@
         <div class="six_block_on_top">
           <a href="{% url 'pay_page' %}">Оплата</a>
         </div>
-        <div class="six_block_on_top">
+        <!-- <div class="six_block_on_top">
           <a href="{% url 'feedback' %}">Обратная связь</a>
-        </div>
+        </div> -->
         <div class="six_block_on_top first_hov_block">
           <a href="{% url 'contact' %}">Контакты</a>
         </div>
@@ -121,7 +121,7 @@
               method="get"
             >
               <input type="text" name="g" placeholder="Поиск.....">
-              <button type="button">
+              <button type="submit">
                 <img
                   src="{% static 'icon/211817_search_strong_icon.png' %}"
                   alt=""
@@ -261,9 +261,9 @@
           <div class="six_block_in_footer">
             <a href="{% url 'pay_page' %}">оплата</a>
           </div>
-          <div class="six_block_in_footer">
+          <!-- <div class="six_block_in_footer">
             <a href="{% url 'feedback' %}">Обратная связь</a>
-          </div>
+          </div> -->
           <div class="six_block_in_footer">
             <a href="{% url 'contact' %}">Контакты</a>
           </div>
@@ -317,5 +317,6 @@
     <div class="blur_bg"></div>
     <div class="blur_bg1"></div>
     <script src="{% static 'js/index.js' %}"></script>
+   
   </body>
 </html>

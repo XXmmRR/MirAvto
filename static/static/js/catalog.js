@@ -12,3 +12,4 @@ div_all1.onclick = () =>{
    div_all1.classList.remove('class_active')
    div_all.style.display = 'flex'
 }
+

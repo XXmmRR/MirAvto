@@ -3,10 +3,12 @@
     padding: 0;
     box-sizing: border-box;
     outline: 0;
+    /* background-color: red; */
     font-family: Gilroy, sans-serif
 }
 
 body {
+    /* background-color: red; */
     height: 100vh;
     
 }
@@ -36,15 +38,7 @@ body {
     padding: 0 5px;
     margin: 5px 5px;
 }
-.big{
-    position: absolute;
-    top: 10%;
-    left: 0%;
-    width: 500px;
-    height: 700px !important;
-    transform: translate(-50%, -50%);
-    z-index: 1000;
-}
+
 
 hr{
     display: none;
@@ -772,6 +766,7 @@ margin-top: 30px;
     transform: scale(1.6, 1.6);
     background: #ffe228
 }
+
 
 @media only screen and (max-width:750px) {
     .container .second_flex_block_in_container .container_for_carousel .slide-wrapper {
@@ -2434,8 +2429,16 @@ footer .footer_container .four_block_in_footer {
     .number{
         margin-left: -10px !important;
     }
-    .imgg{
-        height: 80% !important;
+    
+
+    .big{
+        position: absolute;
+        top: 10%;
+        left: 0%;
+        width: 400px;
+        height: 300px !important;
+        transform: translate(-50%, -50%);
+        z-index: 1000;
     }
     .all_cash {
         width: 95% !important;
@@ -3339,7 +3342,7 @@ margin-left: 0 !important;
         
         }
         .btn-default{
-        width: 160px !important;
+        width: 260px !important;
         height: 20px;
         margin-top: 10px;
         
@@ -3471,10 +3474,10 @@ margin-left: 0 !important;
         
     }
 
-    .div_item .width20 img {
-        width: 80px !important;
-        height: 80px !important
-    }
+    /* .div_item .width20 img {
+        width: 200px ;
+        height: 200px;
+    } */
 
     .div_item .width80 {
         line-height: 13px !important;
@@ -3945,3 +3948,49 @@ margin-left: 0 !important;
     font-size: 11px !important;
 }
 }
+
+
+.form{
+    margin-top: 100px;
+    width: 700px;
+    height: 150px;
+    border-top: 1px solid black;
+    
+    /* background-color: red; */
+}
+/* hr{
+    background-color: red;
+} */
+.ok{
+    display: block;
+    width: 100%;
+    height: 80px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    transition: .3s ease;
+    
+}
+
+.ok:hover{
+    box-shadow: 0 2px 8px 7px #f0f0f0;
+}
+
+.e_form{
+    display: block;
+}
+
+
+
+.modal {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    flex-direction: column;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .3);
+    padding: 35px 45px;
+    width: 404px;
+    z-index: 1500;
+}
+
